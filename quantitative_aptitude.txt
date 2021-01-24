@@ -1,0 +1,194 @@
+** If two trains of length a metres and b metres are moving in opposite directions at u m/s and v m/s, then : The time taken by the trains to cross each other =	(a + b)/(u + v)	sec.
+
+** If two trains (or bodies) start at the same time from points A and B towards each other and after crossing they take a and b sec in reaching B and A respectively, then : A's speed:B's speed 
+= sqrt(b): sqrt(a)
+
+**simple interest :-sum == principal amount .. both words are used 
+	-compound interest :- final amount = initial amount * (1+r/100n)^nt
+	-t = time , n = number of times in a year the amount is compounded
+
+**profit and loss :-https://www.indiabix.com/aptitude/profit-and-loss/formulas
+	-If a trader professes to sell his goods at cost price, but uses false weights, then
+
+    Gain % = (error/(truevalue-error))*100
+
+**percentage :-
+	-If the price of a commodity increases by R%, then the reduction in consumption so as not to increase the expenditure is:
+		- [R/(100+R)]*100
+
+	-If A is R % greater than B then B is [R/(100+R)]*100 % smaller than A
+
+	-If the price of a commodity decreases by R%, then the increase in consumption so as not to decrease the expenditure is:
+		- [R/(100-R)]*100
+	-If A is R % smaller than B then B is [R/(100-R)]*100 % greater than A
+
+	-Let the population of a town be P now and suppose it increases at the rate of R% per annum, then:
+		-population after n years = P(1+R/100)^n
+		-population n years ago = p/[(1+r/100)^n]
+		-for decreasing rate take -R
+
+**calendar :-
+	-odd days :  the number of days more than the complete weeks are called odd days.
+		-if leap year than odd days = 2
+		-else odd days  = 1;
+		-if 1jan2005 = friday than in 1jan2020 day will be (friday+odd_days from 2005 to 2020)%7
+
+	-leap year = divisible by 4,400 and not by 100
+	-100 years = 76 ordinary years + 24 leap years
+	-Number of odd days in 100 years = 5.
+	Number of odd days in 200 years = (5 x 2)  3 odd days.
+	Number of odd days in 300 years = (5 x 3)  1 odd day.
+	Number of odd days in 400 years = (5 x 4 + 1)  0 odd day.
+
+**Average :- Suppose a man covers a certain distance at x kmph and an equal distance at y kmph.
+	-Then, the average speed druing the whole journey is [2xy/(x+y)]
+
+** volume and surface area :-
+	-https://www.indiabix.com/aptitude/volume-and-surface-area/formulas	
+	-Note: 1 litre = 1000 cm3.
+	-1 hectare = 10000 m2
+
+** numbers :-
+	-(a + b + c)2 = a2 + b2 + c2 + 2(ab + bc + ca)
+	-(a3 + b3) = (a + b)(a2 - ab + b2)
+	-(a3 - b3) = (a - b)(a2 + ab + b2)
+	-(a3 + b3 + c3 - 3abc) = (a + b + c)(a2 + b2 + c2 - ab - bc - ac)
+		When a + b + c = 0, then a3 + b3 + c3 = 3abc.
+	-(a+b)^3 = a3 + 3a2b + 3ab2 + b3;
+	(a-b)^3 = a3 - b3 - 3a2b + 3ab2;
+
+	-To check if a number ‘p’ is prime, find a number ‘n’ such that ‘n’ is the smallest natural number which satisfies n2 >= p. Now, check if ‘p’ is divisible by any of the prime numbers less than or equal to ‘n’. If ‘p’ is NOT divisible by any such prime numbers, ‘p’ is a prime number. Otherwise, p is not a prime number.
+
+	-(x^n – a^n) is divisible by (x – a) for all values of n.
+
+	-Divisibility :- 2728 has alternating sum of digits 2 – 7 + 2 – 8 = -11. Since -11 is divisible by 11, so is 2728.
+	Similarly, for 31415, the alternating sum of digits is 3 – 1 + 4 – 1 + 5 = 10. This is not divisible by 11
+
+	-32675149 local value of 7 here is 70000 and face value = 7;
+
+	-(x^n + 1) will be divisible by (x + 1) only when n is odd.
+
+	-numbers divisible by 6 are in AP
+
+	-factors of quadratic equation :- [-b+-sqrt(b2-4ac)]/2a
+
+**HCF and LCM
+	-H.C.F. and L.C.M. of Fractions:
+		-H.C.F. = H.C.F. of Numerators/L.C.M. of Denominators
+    	-L.C.M. = L.C.M. of Numerators/H.C.F. of Denominators
+
+   	-Let N be the greatest number that will divide 1305, 4665 and 6905, leaving the same remainder in each case. Then sum of the digits in N is:
+   		- N = H.C.F. of (4665 - 1305), (6905 - 4665) and (6905 - 1305) = H.C.F. of 3360, 2240 and 5600 = 1120.
+
+   	-If hcf of two numbers = x then two numbers can be written as 
+   		-ax and bx.
+
+   	- 2 | 24  -  36  - 40 ...[LCM of 24,36,40]
+	 --------------------
+	 2 | 12  -  18  - 20
+	 --------------------
+	 2 |  6  -   9  - 10
+	 -------------------
+	 3 |  3  -   9  -  5
+	 -------------------
+	   |  1  -   3  -  5
+	   
+	L.C.M.  = 2 x 2 x 2 x 3 x 3 x 5 = 360.   
+
+** surds : - 
+	- (a/b)^x = (b/a)^-x
+
+** boats and streams :-
+	-If the speed of a boat in still water is u km/hr and the speed of the stream is v km/hr, then:
+		-Speed downstream = (u + v) km/hr.
+		-Speed upstream = (u - v) km/hr. 
+
+	-If the speed downstream is 'a' km/hr and the speed upstream is 'b' km/hr, then:
+		-Speed in still water =	(a + b)/2 km/hr
+		-Rate of stream = (a - b)/2 km/hr.
+
+** logarithms :-
+	-https://www.indiabix.com/aptitude/logarithm/formulas
+
+** shares and stocks
+	-https://www.indiabix.com/aptitude/stocks-and-shares/formulas
+
+** time work :-
+	-if a does work in n days than a does 1/n work in one day
+
+** compound interest :-
+	-https://www.indiabix.com/aptitude/compound-interest/formulas
+	-to get compound interest subtract principal value from obtained value
+
+** partnerships :-
+	-if a and b invest in ratio x:y than ratio of profit is x:y
+	-if a invests x for m months and b invests y for n months then ratio of profit:-
+		xm:yn
+
+** clock :- 5 min = 30 degree
+	-if suppose 10.25 is the time
+		- when converted to hours it is 125/12
+		- so hour hand traces (125/12)*(30)
+		- minute hand traces 25*6
+		- diff between these traces is reflex angle
+
+	-The two hands of a clock will be together between h and h+1 o' clock at
+		(60/11)H minutes past H o' clock.
+	-The two hands of a clock will be in the same straight line but not together between
+		H and H+1
+		-(5H-30)*(12/11) min past H if H > 6
+		-(5H+30)*(12/11) min past H if H < 6
+	-Between H and H+1 o' clock, the two hands of a clock are M minutes apart at
+		-(5H+-M)*(12/11);
+	-min hand and hour hand are at right angle for 22 times in 12 hours.
+	-min hand and hour hand are at opposite direction for 11 times in 12 hours
+	-min hand travels 6 deg per min
+	-hour hand travels 0.5 per min
+	-angle made by hour hand and minute hand at H hours and M minutes = 30*H-(11/2)*M
+
+**area :- https://www.indiabix.com/aptitude/area/formulas
+
+** permutations and combinations :-
+	-npr = n!/(n-r)!
+	-ncr = n!/r!(n-r)!
+
+** ratio and proportions :- a/b, a=antecedant and b=consequent
+	-https://www.indiabix.com/aptitude/ratio-and-proportion/formulas
+
+** pipe and cisterns :-
+	- if a pipe can fill tank in n hours then in 1 hour it fills 1/n part
+	- if a pipe can empty tank in n hours then in 1 hour it empties 1/n part
+
+** https://www.indiabix.com/aptitude/alligation-or-mixture/formulas
+
+** races and games :- 
+	-Suppose A and B are two contestants in a race. If before the start of the race, A is at the starting point and B is ahead of A by 12 metres, then we say that 'A gives B, a start of 12 metres'.
+
+** probability :-
+	-P(E) = n(E)/n(S)
+	-example :- if 2 red ,3 black ,2 blue balls
+		-probability of choosing 2 balls such that no ball is blue.
+		-n(s) = 7c2
+		-n(e) = 5c2
+
+** bankers discount :- https://www.indiabix.com/aptitude/bankers-discount/formulas
+	
+
+**True Discount :- https://www.indiabix.com/aptitude/true-discount/formulas
+	- Amount = (P.W.) + (T.D.)
+
+** stocks and shares :- https://www.indiabix.com/aptitude/stocks-and-shares/formulas
+
+- TD = PW*R*T/100
+  BD = SUM*R*T/100
+  SUM = (BD*TD)/(BD-TD)
+  BG = BD-TD
+  BG = TD^2/PW
+
+
+
+
+
+
+
+

@@ -1,0 +1,9 @@
+* complexity is O(l*n) where l is maximum length of the word and n is maximum number of words .
+* trie is used when we want to group strings with same prefix.
+* https://www.geeksforgeeks.org/trie-insert-and-search/
+* solve maximumum xor subarray problem from gfg
+* delete in trie :- https://www.geeksforgeeks.org/trie-delete/
+
+*******************************************************************
+practical applications :-
+	-autocorrect , autocorrect

@@ -1,0 +1,147 @@
+whenever their are two sorted arrays and comparison between them is required then use MERGE SORT  technique
+**********************************************************************************
+PRIORITY_QUEUE OF STRUCTURE AS ELEMENT:-
+
+struct Key 
+{ 
+    int freq; // store frequency of character 
+    char ch; 
+    
+    // function for priority_queue to store Key 
+    // according to freq 
+    bool operator<(const Key &k) const
+    { 
+        return freq < k.freq; 
+    } 
+};
+
+priority_queue< Key > pq; 
+    for (char c = 'a' ; c <= 'z' ; c++) 
+        if (count[c-'a']) 
+            pq.push( Key { count[c-'a'], c} ); 
+**********************************************************************************
+use prefix sum array whenever there is a situation that :- 
+    - there is a array which has only 0 or 1
+    - and we want to see if from index l to r all are one's or not , or count number of one's 
+    - use prefix sum array
+     
+**********************************************************************************
+use count() function of set inorder to get that if particular number is present or not.
+e.g s.count(5) //this will return 1 if 5 is present in set or will return 0;
+**********************************************************************************
+ How to see if calculated number is integer or not :-
+    -ceil(n) == floor(n)
+**********************************************************************************
+when n nodes have n-1 edges 
+it is a tree
+so in order to find path we can use LCA algorithm
+**********************************************************************************
+vector.erase(it) && vector.erase(it,it+5)
+return the pointer to the element next to erased element.
+**********************************************************************************
+just like abs() for integer use fabs() for any number
+**********************************************************************************
+Initialize global vector:- v.resize(n,vector<int>(m,0));
+
+**********************************************************************************
+Initialize 3D vector :- 
+vector<vector<vector<int>>> arr(operators.size(), vector<vector<int>>(operators.size(), vector<int>(2, 0)));
+
+**********************************************************************************
+if(m.find(key)!=m.end())cout<<"present";
+to check if key is present in map
+
+**********************************************************************************
+ pq.push( Key { count[c-'a'], c} ); 
+ Key is a class so object can be pushed in this way.
+ you don't need constructor
+**********************************************************************************
+for big numbers in cpp
+1)use string 
+2)  #include <boost/multiprecision/cpp_int.hpp> 
+    using namespace boost::multiprecision;
+    cpp_int num;
+**********************************************************************************
+vector<int>:: iterator it1,it2;
+it1 = lower_bound(arr.begin(),arr.end(),num);
+it2 = upper_bound(arr.begin(),arr.end(),num);
+
+lower_bound returns an iterator pointing to the first element in the range [first,last) which has a value >= ‘val’.
+ 
+upper_bound returns an iterator pointing to the first element in the range [first,last) which has a value > ‘val’.
+**********************************************************************************
+
+double a;
+cin>>a;
+cout<<fixed<<setprecision(4)<<a;
+
+**********************************************************************************
+auto a = 100; // a will become 'int'
+auto b = 1LL; // b will become 'long long'
+auto c = 1.0; // c will become 'double'
+auto d = "variable"; // d will become 'string'
+**********************************************************************************
+
+__gcd(24,36)
+inbuilt function for gcd
+**********************************************************************************
+
+ Calculating the number of digits directly: To calculate number of digits in a number, instead of looping you can efficiently use log :
+
+Number of digits in N =floor(log10(N)) + 1; 
+**********************************************************************************
+
+If you want unique only elements,sorted(ascending or descending),want to insert and also remove element use set.
+
+If you want all the operations but want to store duplicate elements use multiset.
+**********************************************************************************
+void rec(int &i)
+{
+    i++;
+}
+void func()
+{
+    int i = 0;
+    rec(i);
+    cout<<i<<endl;
+}
+inorder to change value of variable pass using reference
+**********************************************************************************
+if m[key] is not present then m[key] returns 0;
+**********************************************************************************
+priority_queue<int,vector<int>,greater<int>> pq;
+**********************************************************************************
+set<vector<int> > set_of_vectors; 
+void Print_Vector(vector<int> Vec) 
+{ 
+    for (int i = 0; i < Vec.size(); i++) { 
+        cout << Vec[i] << " "; 
+    } 
+    cout << endl; 
+    return; 
+} 
+for (auto it = set_of_vectors.begin(); 
+         it != set_of_vectors.end(); 
+         it++) { 
+  
+        Print_Vector(*it); 
+    }
+**********************************************************************************
+set is default ascending;
+priority queue is descending;
+//in stl
+**********************************************************************************
+to_string(double d) is valid
+i.e if d = 0.2345 
+then s = to_string(d) = 0.2345;
+**********************************************************************************
+
+
+
+
+
+
+
+
+
+

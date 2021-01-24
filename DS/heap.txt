@@ -1,0 +1,68 @@
+*binary heap is a complete binary tree
+*so it can be stored in array
+*	Arr[(i-1)/2]	Returns the parent node
+	Arr[(2*i)+1]	Returns the left child node
+	Arr[(2*i)+2]	Returns the right child node
+
+**insert operation :- 
+	-insert  next element at next free space
+	-compare with parent till the element gets its position
+
+** delete operation :- 
+	-only root element can be deleted in heap.
+	-last element of heap is placed on root after delete root.
+	-after this elements are adjusted by comparing.
+
+** heap sort :-
+	-delete element one by one  and store elements separately.
+
+**abdul bari udemy course / heap
+
+-duplicates are allowed
+	-All nodes are either [greater than or equal to child nodes](max heaps) or [less than or equal to child nodes](min heaps) each of its children, according to a comparison predicate defined for the heap.
+	
+-merge k sorted arrays
+	-use min heap
+	-insert first element from all arrays in min heap [O(k) time]
+	-delete the minimum element from heap and insert one element in heap from the array from which the element was deleted [O(logk)]
+	-keep repeating 
+
+***binomial heap and fibonacci heap [Not Done yet]
+
+-nearly sorted algorithm - array is given where every element is maximum k steps away from its sorted location we have to sort the array
+	-take first k elements and make min heap [O(k)]
+	-delete element and insert the next element of the array in the heap [O(logk)]
+	-keep deleted element in the separate array
+	-total time = O(nlog(k))
+
+*rearrange characters in the string such that no adjacent characters are same
+	-use priority queue on frequency of characters
+	-https://www.geeksforgeeks.org/rearrange-characters-string-no-two-adjacent/
+
+*find smallest range in k lists
+	-https://www.geeksforgeeks.org/find-smallest-range-containing-elements-from-k-lists/
+	-take min,max,range as local variables and 
+		minrange,minrangemin,minrangemax as global variables
+	-use heap to take first element from all k lists
+	-min=firstelement , max=lastelement of the heap/priorityqueue,range = max-min
+	-take minimum element out of heap and insert element from the same list from which element was taken out
+	-again find min,max,range and if range<minrange then:
+	minrange = range,minrangemin=min,minrangemax=max;
+
+******************************************************
+practical applications :-
+	-dijkstra's algorithm
+	-priority queue
+	-scheduling 
+	-huffman 
+	-prims
+	
+
+
+
+
+
+
+
+
+

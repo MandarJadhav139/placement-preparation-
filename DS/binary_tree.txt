@@ -1,0 +1,105 @@
+*The maximum number of nodes at level ‘l’ of a binary tree is 2^l.
+
+*Maximum number of nodes in a binary tree of height ‘h’ is 2^h – 1.
+
+*In Binary tree where every node has 0 or 2 children, number of leaf nodes is always one more than nodes with two children.
+
+*Full Binary Tree : A Binary Tree is a full binary tree if every node has 0 or 2 children.
+	*In a Full Binary Tree, number of leaf nodes is the number of internal nodes plus 1
+       L = I + 1
+
+*Complete Binary Tree: A Binary Tree is a complete Binary Tree if all the levels are completely filled except possibly the last level and the last level has all keys as left as possible
+
+*Perfect Binary Tree A Binary tree is a Perfect Binary Tree in which all the internal nodes have two children and all leaf nodes are at the same level.
+
+*A binary tree is balanced if the height of the tree is O(Log n) where n is the number of nodes. 
+
+*In a k-ary tree where every node has either 0 or k children, following property is always true.
+	* L = (k - 1)*I + 1
+Where L = Number of leaf nodes
+      I = Number of internal nodes
+
+*It is evident that extra space required for Level order traversal is likely to be more when tree is more balanced and extra space for Depth First Traversal is likely to be more when tree is less balanced.
+
+** How to Pick One?
+
+1.Extra Space can be one factor (Explained above)
+2.Depth First Traversals are typically recursive and recursive code requires function call overheads.
+3.The most important points is, BFS starts visiting nodes from root while DFS starts visiting nodes from leaves. So if our problem is to search something that is more likely to closer to root, we would prefer BFS. And if the target node is close to a leaf, we would prefer DFS.
+
+*****problems
+*https://www.geeksforgeeks.org/diameter-of-a-binary-tree/
+	-recursive function to calculate 
+	max(left_subtree_diameter,right_subtree_diameter,leftheight+rightheight+1);
+
+*Inorder tree traversal without recursion
+	-https://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion/
+
+*Inorder tree traversal without recursion and without stack
+	-[concept]https://www.youtube.com/watch?v=wGXB9OWhPTg
+	-[code] https://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion-and-without-stack/
+
+*preorder traversal[follow the second solution]
+	-https://www.geeksforgeeks.org/iterative-preorder-traversal/
+
+*postorder traversal
+	-https://www.geeksforgeeks.org/iterative-postorder-traversal-using-stack/
+
+*If you are given two traversal sequences, can you construct the binary tree?
+Inorder and Preorder.
+Inorder and Postorder.
+Inorder and Level-order.
+
+*even if pre,post,level are given together tree cannot be constructed
+
+*write a program to construct tree from given inorder and preorder traversal.
+
+*width of  the tree at level 'l' is number of nodes at level 'l'
+	-[use recursion and store width for every level in an array while traversing the tree]
+
+*print ancestors of a given node in a binary tree
+	-https://www.geeksforgeeks.org/print-ancestors-of-a-given-node-in-binary-tree/
+
+*check if a binary tree is subtree of another binary tree
+	-https://www.geeksforgeeks.org/check-if-a-binary-tree-is-subtree-of-another-binary-tree/
+
+*lca of two nodes in a binary tree
+	-https://www.youtube.com/watch?v=13m9ZCB8gjw
+	-approach 1: traverse tree for node a ,write the path
+				traverse tree for node b ,write the path
+				see from start while path[i]==path[j]
+
+	-approach 2: return null if not present in subtree
+				else return the val of node
+				if any node receive both values not null then that node is ancestor
+
+*convert binary tree to binary search tree with same structure
+	-1.traverse inorder store in array
+	-2.sort the array
+	-3.traverse the tree again in inorder manner and while traversing update elements of the tree with the elements in the array.
+
+*construct bst from preorder traversal
+	-[2nd code][recursive]https://www.geeksforgeeks.org/construct-bst-from-given-preorder-traversa/
+
+* pairs violating bst property 
+	-https://practice.geeksforgeeks.org/editorial.php?pid=700604
+
+**********************************************
+applications :-
+
+binary trees :- bst,heap,huffman coding tree,syntax trees- Constructed by compilers and (implicitly) calculators to parse expressions
+	-file compression
+	-Binary trees are also commonly used to implement multilevel indexing within databases.
+
+*************************************
+theory :-
+	- trees are hierarchical and not like queue,stack,array which are linear datastructures.
+	- every node in binary tree has at most 2 nodes.
+	
+
+
+
+
+
+
+

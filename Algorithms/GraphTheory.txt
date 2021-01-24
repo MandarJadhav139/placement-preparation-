@@ -1,0 +1,141 @@
+BFS :- Queue is used ( O(V+E) where V is number of vertices in the graph and E is number of edges in the graph.)
+DFS :- Stack is used (O(V+E) where V is number of vertices in the graph and E is number of edges in the graph.)
+//Concept is explained in video at given link
+https://www.youtube.com/watch?v=pcKY4hjDrxk
+
+* Path finding :-
+	We can specialize the DFS algorithm to find a path between two given vertices u and z.
+	i) Call DFS(G, u) with u as the start vertex.
+	ii) Use a stack S to keep track of the path between the start vertex and the current vertex.
+	iii) As soon as destination vertex z is encountered, return the path as the
+	contents of the stack
+
+* Topological sort :- https://www.geeksforgeeks.org/topological-sorting/
+
+* Bipartite or not:-
+	Following is a simple algorithm to find out whether a given graph is Bipartite or not using Breadth First Search (BFS).
+	1. Assign RED color to the source vertex (putting into set U).
+	2. Color all the neighbors with BLUE color (putting into set V).
+	3. Color all neighbor’s neighbor with RED color (putting into set U).
+	4. This way, assign color to all vertices such that it satisfies all the constraints of m way coloring problem where m = 2.
+	5. While assigning colors, if we find a neighbor which is colored with same color as current vertex, then the graph cannot be colored with 2 vertices (or graph is not Birpartite)
+
+
+* M Coloring graph problem :- use backtracking
+	https://www.geeksforgeeks.org/m-coloring-problem-backtracking-5/
+	code here is ideal example of backtracking
+
+* snake and ladder :- BFS //https://www.youtube.com/watch?v=1pMNYQmtVVg
+
+* connected graph is graph that has a path between two vertices
+	biconnected graph is graph where if any one vertex is removed still the graph remains connected
+	biconnected component is maximal biconnected subgraph
+	Articulation point or cut vertex :- A vertex in an undirected connected graph is an articulation point (or cut vertex) if removing it (and edges through it) disconnects the graph.
+
+* alorithm to find articulation point || see if the graph is biconnected or not
+	https://www.youtube.com/watch?v=jFZsDDB0-vo
+
+* An undirected graph is tree if it has following properties.
+	1) There is no cycle.
+	2) The graph is connected.
+
+* disjoint sets , union and find algorithm for detecting cycles in graph
+	SKIP TO :- 18:00 :- https://www.youtube.com/watch?v=wU6udHRIkcc
+	-disjoint sets are sets which don't have any node in common.
+	-find operation :- here for edge u,v we find in which set u belongs and in which set v belongs.
+	-union operation :- if u and v belong to different sets then perform union on these sets.
+	-cycle :- if u and v belong to same set then there is a cycle.
+	-perform this using parent array.
+	-collapsing find [23:00]same video
+
+* minimum spanning trees :- prim and kruskals :-skip to 8:10 :-  https://www.youtube.com/watch?v=4ZlRH0eK-qQ 
+	-kruskals:-O(ElogE) or O(ElogV). Sorting of edges takes O(ELogE) time. After sorting, we iterate through all edges and apply find-union algorithm. The find and union operations can take atmost O(LogV) time. So overall complexity is O(ELogE + ELogV) time. 
+	-prims:-
+		-Time Complexity of the above program is O(V^2). If the input graph is represented using adjacency list, then the time complexity of Prim’s algorithm can be reduced to O(E log V) with the help of binary heap. 
+		-https://www.geeksforgeeks.org/prims-minimum-spanning-tree-mst-greedy-algo-5/
+		-prims uses visited array for avoiding cycle in minimum spanning tree.
+
+* shortest distance algorithms :-
+	dijksras algorithm :- abdul bari(O(VLogV) (with the use of Fibonacci heap))
+	bellman ford's algo(for negative weighted edges || directed graph)( O(VE)) :- 
+		- draw back of bellman ford is that it does not work if their is a negative weighted cycle in the graph
+		- but it can detect if their is negative weighted cycle or not
+		https://www.youtube.com/watch?v=FtN3BYH2Zes
+		-d(v) = min((d(u) + c(u,v)) , d(v));
+		-O(n^2) minimum and when graph is complete graph i.e E = V*(V-1)
+		then time complexity is O(n^3)
+
+* traveling salesman problem
+	-https://www.youtube.com/watch?v=XaXsJJh-Q5Y
+	
+* floyd warshall's algorithm :- // To find All Pair Shortest Path //https://www.geeksforgeeks.org/floyd-warshall-algorithm-dp-16/
+For every pair (i, j) of the source and destination vertices respectively, there are two possible cases.
+1) k is not an intermediate vertex in shortest path from i to j. We keep the value of dist[i][j] as it is.
+2) k is an intermediate vertex in shortest path from i to j. We update the value of dist[i][j] as dist[i][k] + dist[k][j] if dist[i][j] > dist[i][k] + dist[k][j]
+
+*detect cycle in undirected graph :- 
+	-https://www.techiedelight.com/check-undirected-graph-contains-cycle-not/
+
+* Euler circuit and euler path :- https://www.geeksforgeeks.org/eulerian-path-and-circuit/
+	- use dfs and check if all vertices having nonzero edges are covered 
+
+
+* Mo's algorithm : -
+-https://www.geeksforgeeks.org/mos-algorithm-query-square-root-decomposition-set-1-introduction/	
+-sort the queries according to head or start index
+-ties are sorted according to end index
+	
+* Mo's algorithm on trees :-[concept] https://codeforces.com/blog/entry/43230
+
+* LCA algorithm :-[concept & implementation] https://cp-algorithms.com/graph/lca.html
+	-Euler's tour is representing a tree in 1 d array form where a node is present twice one time while start it's subtree and while ending it's subtree[during dfs traversal]
+	-in lca algorithm we also maintain height of node which we get from dfs
+	-lca of u,v is a node between their start in euler array with minimum height
+
+
+* minimum height of tree with n nodes is log2(n)
+
+*A Hamiltonian circuit ends up at the vertex from where it started. ... Important: An Eulerian circuit traverses every edge in a graph exactly once, but may repeat vertices, while a Hamiltonian circuit visits each vertex in a graph exactly once but may repeat edges.
+
+*Eulerian trail: An Eulerian trail is a trail that visits every edge of the graph once
+and only once. It can end on a vertex different from the one on which it began. A graph
+of this kind is said to be traversable.
+1
+
+*Eulerian Circuit: An Eulerian circuit is an Eulerian trail that is a circuit. That
+is, it begins and ends on the same vertex.
+
+*Eulerian Graph: A graph is called Eulerian when it contains an Eulerian circuit.
+
+*Theorem: An Eulerian trail exists in a connected graph if and only if there are
+either no odd vertices or two odd vertices.
+For the case of no odd vertices, the path can begin at any vertex and will end there;
+for the case of two odd vertices, the path must begin at one odd vertex and end at the
+other. 
+
+*Hamiltonian Circuit: A Hamiltonian circuit in a graph is a closed path that visits
+every vertex in the graph exactly once. 
+
+*Important: An Eulerian circuit traverses every edge in a graph exactly once, but
+may repeat vertices, while a Hamiltonian circuit visits each vertex in a graph exactly
+once but may repeat edges
+
+**interview bit questions:-
+
+-https://www.interviewbit.com/problems/sum-of-fibonacci-numbers/
+	-in case of fibonacci numbers greedy method works 
+	-i.e consider largest number less than N then modify N and keep doing the same till N=0;
+
+-https://www.interviewbit.com/problems/word-ladder-i/
+
+
+***************************************************
+practical examples :-
+	- shortest path in google map
+	- social networks(graph of users)
+	- routing (internet)
+	- in distributed systems to find if there is any articulation point.
+
+
+
+

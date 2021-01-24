@@ -1,0 +1,20 @@
+1) When a resource is shared among multiple consumers. Examples include CPU scheduling, Disk Scheduling.
+2) When data is transferred asynchronously (data not necessarily received at same rate as sent) between two processes. Examples include IO Buffers, pipes, file IO, etc.
+
+Deque:
+1)Since Deque supports both stack and queue operations, it can be used as both. The Deque data structure supports clockwise and anticlockwise rotations in O(1) time which can be useful in certain applications.
+Also, the problems where elements need to be removed and or added both ends can be efficiently solved using Deque.
+
+**https://www.geeksforgeeks.org/interesting-method-generate-binary-numbers-1-n/
+
+Interview bit questions :-
+** sliding window maximum
+-https://www.youtube.com/watch?v=m-Dqu7csdJk
+-use deque
+
+***********************************************************************
+theory :- queue is a linear structure that follows first in first out order.
+
+
+
+

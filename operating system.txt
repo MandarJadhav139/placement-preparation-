@@ -1,0 +1,228 @@
+* operating system :- is a software which acts as an interface between user application and hardware
+					-functions :- resources like :- memory,processors,devices,data(information)
+								uses :- a scheduler, memory management module, I/O controller manages through device drivers, and a file system.
+
+* types of operating system :- https://afteracademy.com/blog/what-are-the-types-of-an-operating-system
+
+* multi programming os:- non preemptive [many processes in ram]
+  multi processing :- more than one processor is used.
+  multi tasking os :- preemptive [specific time quantum is assigned]
+  multi threading :- same code requested by multiple processes [website where multiple clients request server].
+  non multi programming system :- In a non multi programmed system, As soon as one job leaves the CPU and goes for some other task (say I/O ), the CPU becomes idle. The CPU keeps waiting and waiting until this job (which was executing earlier) comes back and resumes its execution with the CPU. So CPU remains free for all this while.
+
+* RAM
+  ROM :- Stores crucial information essential to operate the system, like the program essential to boot the computer.
+
+* https://www.geeksforgeeks.org/what-happens-when-we-turn-on-computer/
+
+*Kernel is the core part of an operating system which manages system resources. It also acts like a bridge between application and hardware of the computer. It is one of the first programs loaded on start-up (after the Bootloader)[functions same as os].
+
+*system call is the programmatic way in which a computer program requests a service from the kernel of the operating system it is executed on. 
+
+* states of process :- new -> ready -> running -> terminated
+							     |<-wait/block<-|
+							     		-|
+							     	suspend wait
+
+-long term scheduler(lts),short term scheduler(sts),medium term scheduler(mts)
+
+-A Process Control Block or simple PCB is a data structure that is used to store the information of a process that might be needed to manage the scheduling of a particular process.
+	-process id
+	-process state
+	-program counter
+	-general purpose registers
+	-i/o devices needed
+	-priority
+
+-starvation occurs mostly in priority scheduling and sjf , to avoid it AGING is used where low priority process's priority is increased after some time quantum.	
+
+- process vs threads :- The primary difference is that threads within the same process run in a shared memory space, while processes run in separate memory spaces.
+	-threads share with other threads their code section, data section, and OS resources (like open files and signals).
+	-thread has its own program counter (PC), register set, and stack space.
+	-Communication between multiple threads is easier, as the threads shares common address space. while in process we have to follow some specific communication technique for communication between two process.
+
+- user mode vs kernel mode
+
+- scheduling algorithms :- preemptive and non preemptive.
+
+- non preemptive -> FCFS,SJF,priority
+
+- preemptive -> SRTF(SJF PREEMPTIVE),round robin,priority scheduling
+
+- process synchronization :- variable,memory,code,resources[i/o,cpu,etc] are shared in cooperative process.
+
+- rules for synchronization :-
+	- mutual exclusion - compulsary
+	- progress   - compulsary
+	- bounded wait - not mandatory
+	- no assumption related to hardware - not mandatory.
+
+- critical section
+
+- semaphores :- counting semaphore(-inf to +inf) ,  binary semaphore(0|1)
+	- Semaphore is simply a integer variable which is shared between threads. 
+	- problem of critical section and process synchronization is solved.
+	- counting semaphore is used to control access to a resource that has multiple instances.
+
+- mutex(mutual exclusive object) is locking mechanism used to synchronize access to a resource. Mutex uses the lock-based technique to handle the critical section problem. 
+
+- entry code - P() , down , wait
+  exit code - V() , up , signal , post , release 	 
+			
+
+-peterson's algorithm for mutual exclusion[https://www.geeksforgeeks.org/petersons-algorithm-in-process-synchronization/]:- flag , turn // two variables
+	- 1st process turns flag[self] = 1//shows willingness to acquire lock
+	- and allows 2nd process to go inside critical section
+	- if 2nd does not show willingness then 1st enters the critical section.
+
+-Deadlock :- https://www.geeksforgeeks.org/introduction-of-deadlock-in-operating-system/
+-deadlock occurs when 4 conditions occur simultaneously
+	-mutual exclusion
+	-hold and wait
+	-no preemption
+	-circular wait
+
+-deadlock detection :- see if there is a cycle in resource allocation graph
+
+-deadlock recovery :- killing the process , resource preemption
+
+-deadlock prevention or avoidance :- Banker's algorithm
+	-https://www.geeksforgeeks.org/bankers-algorithm-in-operating-system-2/
+
+
+- resource request algorithm :- 
+	-request<=need
+	-request<=available
+
+
+- resource allocation graph :- https://www.geeksforgeeks.org/resource-allocation-graph-rag-in-operating-system/	
+
+
+- memory management :-
+	-cpu registers
+	-cache memory(sram)
+	-main memory (dram)
+	-magnetic disk
+	-optical disk
+	-magnetic tape
+
+- secondary memory :- accessible through I/O module
+  primary memory :- accessible directly to processor
+	
+-  Memory Management Unit(MMU) is a hardware component responsible for translating a logical address to a physical address.
+
+- memory allocation :-
+	-single contiguous allocation
+	-partitioned allocation
+	-page memory management
+	-segmented memory management
+
+-fragmentation :- https://afteracademy.com/blog/what-is-fragmentation-and-what-are-its-types
+
+- partition allocation :- first fit,best fit,worst fit,next fit
+
+- contiguous partitioning :-
+	-fixed :- internal fragmentation,external fragmentation
+	-dynamic :- external fragmentation.
+
+- non contiguous partitioning :- 
+	-spanning is allowed
+	-page table is to be maintained
+	-overhead of address translation
+
+- logical address is address generated by cpu
+- physical address is actual address in main memory
+
+- paging :- https://afteracademy.com/blog/what-are-paging-and-segmentation
+	-page number , page offset [logical addressing]
+	-frame number, frame offset [physical addressing]
+	-translation look aside buffer - page no,frame no.
+	-page table entry :- frame number , present/absent , protection , reference , caching , dirty
+	-page table is a datastructure for every single process we have a page table.
+	-page table works as index
+	-pcb has ptbr who gives the address of page table in main memory
+
+- locality of reference[term related to caching mechanism]
+	-spatial locality[space]
+	-temporal locality[time]
+
+- translation look aside buffer [hardware] :-
+	-page number , frame number
+
+- virtual memory :- https://afteracademy.com/blog/what-is-virtual-memory-and-how-is-it-implemented
+	- not whole processes but the parts[some pages] of processes are stored in main memory when process size is large.
+	-Virtual Memory is a way of using the secondary memory in such a way that it feels like we are using the main memory.	
+
+- thrashing :- Thrashing is a condition or a situation when the system is spending a major portion of its time in servicing the page faults, but the actual processing done is very negligible.
+
+- segmentation :- same as paging :- has process in form of segments in main memory , has segment table which has base address and size , logical address produced by cpu has segment number and offset.
+				- in paging page size is fixed so process gets divided in any way
+				- in segmentation segment size varies important required parts of process are kept in same segment.
+
+- virtual memory and page fault :- when process sizes are so large and ram size is fixed we use virtual memory where we don't store whole process in the ram but just the part of it is stored.
+	- if for any page we don't find that page in  page table i.e it is not there in main memory than page fault occurs.
+
+- page replacement algo :- fifo , lru , optimal page replacement[page that would not be required for longer time is swapped out],least frequently used
+
+
+- file system :- tree structured directory
+	- file is splitted in blocks.
+	- file allocation table :- filename , startblock , length;
+	- contiguous file allocation :- 
+		- disadvantage :- external fragmentation.
+	- linked allocation [non-contiguous] :- each block contains a pointer to next block
+		- There is an overhead of maintaining the pointer in every disk block.
+		- internal fragmentation exists because blocks are fixed size.
+
+	- indexed allocation :- index is maintained for every file.
+		- every block has different entry in index
+		- direct access is possible
+		- variable sized blocks
+
+- file access method :-
+	- sequential
+	- direct
+	- index sequential 
+
+- magnetic storage media :- Magnetic media is coated with a magnetic layer which is magnetized in clockwise or anticlockwise directions. When the disk moves, the head interprets the data stored at a specific location in binary 1s and 0s at reading.
+
+-A hard disk consists of one or more circular disks called platters which are mounted on a common spindle. Each surface of a platter is coated with a magnetic material. Both surfaces of each disk are capable of storing data 
+
+- optical storage media :- In optical storage media information is stored and read using a laser beam. 
+
+- Solid-state storage devices use special memories called flash memory to store data. Solid state drive (or flash memory) is used mainly in digital cameras, pen drives or USB flash drives.
+
+- SPOOL is an acronym for simultaneous peripheral operations on-line:
+	-https://www.geeksforgeeks.org/what-exactly-spooling-is-all-about/
+	- in spooling cpu does not handle i/o requests due to which throughput of cpu increases drastically.
+	- cpu only communicates with the main memory.
+
+-Disk scheduling is done by operating systems to schedule I/O requests arriving for the disk.
+	-disc controller
+	-seek time is time taken to locate disc arm to specified track.
+	-rotational latency is time taken by the specified sector to rotate into position so that it can access the read/write head.
+	-transfer time is time required to transfer data . It depends on rotating speed of the disc and number of bytes to be transferred.
+	-Disk Access Time = Seek Time + 
+                         Rotational Latency + 
+                         Transfer Time
+
+- disc scheduling algorithms :- 
+								-fcfs
+								-sstf (shortest seek time first)
+									- process closest to the arm is executed first
+								-SCAN: In SCAN algorithm the disk arm moves into a particular direction and services the requests coming in its path and after reaching the end of disk, it reverses its direction and again services the request arriving in its path.
+								-cscan
+								-look and clook :- are optimized scan and cscan
+								-lifo 
+
+* producer consumer problem :- https://www.geeksforgeeks.org/producer-consumer-problem-using-semaphores-set-1/
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,68 @@
+**chaining :- n = number of keys
+				  size = number of head pointers (e.g if hashfunction = h(x%10) then size = 10
+				  lambda = n/size
+				  avg successful search = 1 + lambda/2
+				  avg unsuccessful search = 1 + lambda
+				  time to search = O(1+lambda)
+				  time to delete = O(1+lambda)
+ It is mostly used when it is unknown how many and how frequently keys may be inserted or deleted.
+
+**open addressing	
+*linear probing (closed hashing) :-
+	h(x) = x%10
+	when collision occurs :- h'(x) = (h(x) + i)%10  ....(where i = number of collision)
+	loading factor(lambda) <= 0.5
+	avg successful search = (1/lambda)ln(1/1-lambda)
+	avg unsuccessful search = 1/1-lambda
+
+	solution for deleting in linear probing is delete element and rehash all other elements
+
+	Delete(k): Delete operation is interesting. If we simply delete a key, then search may fail. So slots of deleted keys are marked specially as “deleted”.
+	Insert can insert an item in a deleted slot, but the search doesn’t stop at a deleted slot.
+
+	Clustering: The main problem with linear probing is clustering, many consecutive elements form groups and it starts taking time to find a free slot or to search an element.
+
+*quadratic probing
+	h'(x) = (h(x) + i^2)%10
+	avg successful search :- -ln(1-lambda)/lambda
+	avg unsuccessful search :- 1/1-lambda
+
+*double hashing
+	h1(x) = x%10
+	h2(x) = P - (x%P)  ...(P is largest prime number less than size of hash table i.e if size = 10,p = 7)
+	h'(x) = (h1(x) + i*h2(x))%10
+
+
+*in modulus hash function it is better to take prime number as size.
+*in midsquare hash function we square the key and take it's middle element as position of hash table
+*folding is dividing number into parts adding those parts and then applying mod
+
+
+*vertical order traversal of binary tree
+	-https://www.geeksforgeeks.org/print-binary-tree-vertical-order-set-2/
+	- We need to check the Horizontal Distances from the root for all nodes. If two nodes have the same Horizontal Distance (HD), then they are on the same vertical line. The idea of HD is simple. HD for root is 0, a right edge (edge connecting to right subtree) is considered as +1 horizontal distance and a left edge is considered as -1 horizontal distance. For example, in the above tree, HD for Node 4 is at -2, HD for Node 2 is -1, HD for 5 and 6 is 0 and HD for node 7 is +2.
+
+***************************************************************************************
+practical applications :-
+	-user authentication
+	-security
+	-cryptography hash functions
+	-dbms queries backend
+
+
+theory :-
+	-hashing gives best case O(1) and worst case O(n)
+	-for search,insert and delete.
+	-in case of balanced bst search,insert and delete is of O(logn)
+
+
+
+
+
+
+
+
+
+
+
+

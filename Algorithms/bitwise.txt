@@ -1,0 +1,217 @@
+*	First lets see the rules for XOR
+	Rule 1 : If both bits are 1 then XOR’ed bit will be 0.
+	Rule 2 : If both bits are 0 then XOR’ed bit will be 0.
+	Rule 3 : If one bit is 0 and one bit is 1 XOR’ed bit will be 1.
+
+* sign bit of negative number is 1 and of positive number is 0;
+
+* XOR SWAP ALGORITHM :-https://en.wikipedia.org/wiki/XOR_swap_algorithm
+	- x = x^y
+	- y = x^y
+	- x = x^y
+	can also be done using + and -
+
+* left shift operator :-  a<<b  [a left shift b times]
+
+* right shift operator :- a>>b [a right shift b times]
+	
+* value after left shift :- if a then after left shift b times value = a*pow(2,b);
+* value after right shift :- if a then after right shift b times value = a/pow(2,b);
+
+* How to see if calculated number is integer or not :-
+	-ceil(n) == floor(n)
+
+* how to count number of set bits in number n :- [time - 4:00 ]https://www.youtube.com/watch?v=KJnhAUkxAho
+	-n = n&n-1  uptil n!=0
+
+* property of bitwise representation of numbers :-
+	- n-1 is formed by toggling all bits of n from the rightmost set bit
+	- e.g 9 and 8 , 8 and 7
+
+* rotate bits of number :- https://www.geeksforgeeks.org/rotate-bits-of-an-integer/
+	-(n << d)|(n >> (INT_BITS - d));
+	(n >> d)|(n << (INT_BITS - d)); 
+
+* reversing the bits of a number :- https://www.youtube.com/watch?v=KE5Axm7uzok
+	-store one by one bit from last in array 
+	-and then we have an array of bits which has bits in reversed order
+	-then from start just left shift and bitwise OR the next bit
+
+
+* ffs() function returns the position of the rightmost set bit from right 
+-e.g returns 1 for 5
+			2 for 6
+			3 for 4
+
+* check if ith bit is set or not :- https://www.geeksforgeeks.org/binary-representation-of-a-given-number/
+	-num&pow(2,i);
+
+* swap all even bits with odd bits :- https://www.geeksforgeeks.org/swap-all-odd-and-even-bits/
+	-0xAAAAAAAA //number with all even bits set and all odd bits unset
+	- 0x55555555 //number with all odd bits set and all even bits unset
+
+* swap two nibbles :-https://www.geeksforgeeks.org/swap-two-nibbles-byte/
+	* num  & 0x0f  gives last four bits
+	* num & 0xf0 gives first four bits
+
+* builtin function for counting set bits
+-__builtin_popcount(4);
+
+* problems :-----------------
+* if n = a + b, m = a ^ b;
+	n = m + 2*(a and b)
+	a and b = (n-m)/2;
+
+* lucky person alive in circle
+	-((n&(~(1<<(int)log2(n))))<<1)+1
+	-this gives the answer
+
+* find maximum subset xor 
+- https://www.geeksforgeeks.org/find-maximum-subset-xor-given-set/
+	-	Let the input set be : {9, 8, 5}
+
+		We start from 31st bit [Assuming Integers are 32 bit 
+		long]. The loop will continue without doing anything till 4'th bit.
+
+		The 4th bit is set in set[0] i.e. 9 and this is the maximum
+		element with 4th bit set. So we choose this element and check
+		if any other number has the same bit set. If yes, we XOR that 
+		number with 9. The element set[1], i.e., 8 also has 4'th bit 
+		set. Now set[] becomes {9, 1, 5}.  We add 9 to the list of 
+		chosen elements by incrementing 'index'
+
+		We move further and find the maximum number with 3rd bit set
+		which is set[2] i.e. 5  No other number in the array has 3rd
+		bit set. 5 is also added to the list of chosen element.
+
+		We then iterate for bit 2 (no number for this) and then for 
+		1 which is 1. But numbers 9 and 5 have the 1st bit set. Thus
+		we XOR 9 and 5 with 1 and our set becomes (8, 1, 4)
+
+		Finally, we XOR current elements of set and get the result
+		as 8 ^ 1 ^ 4 = 13.
+
+* If N has m set bits how many numbers less than N have same set bits 
+	-//https://practice.geeksforgeeks.org/problems/shreyansh-and-his-bits/0
+	-observation 1:-numbers less than N can only have set bits to the right of the leftmost set bit of N
+	-solution in gfg folder D/competitive/gfg
+
+* find maximum xor value using k numbers in range 1 to n
+	-answer when k>1 is always a number greater than n with all bits set to 1
+	-so we have to just find next power of 2 and subtract 1 from it
+
+
+* find number of subsets with k as xor value of subset
+	- max xor val that is possible is number greater than n with all  bits set to 1
+	- so we have to just find next power of 2 and subtract 1 from it
+	- m = pow(2,log2(max(n))+1)-1;
+	https://www.geeksforgeeks.org/count-number-of-subsets-having-a-particular-xor-value/
+	- make arr[n+1][m+1] apply dp .. n is length of array
+	- arr[0][0] = 1 because there is one element with xor 0 i.e empty set
+	- for i=1 to n inclusive
+	 	for j=0 to m inclusive
+	 		arr[i][j] = arr[i-1][j] + arr[i-1][j^a[i-1]]; //a[] is input array
+	 		//because j^a[i-1]^a[i-1]=j
+
+* sum of xor pairs in array
+	-https://www.geeksforgeeks.org/sum-xor-pairs-array/
+	-observation 1 :- if 'a' numbers have nth bit 0 and 'b' numbers have nth bit 1
+	then a*b possible combinations can be made where nth bit is set
+	so value of that bit can be considered a*b times
+	-find this for all 32 bits
+	-complexity O(32*n)
+
+* compute xor from 1 to n
+	int computeXOR(int n) 
+	{ 
+	    if (n % 4 == 0) 
+	        return n; 
+	    if (n % 4 == 1) 
+	        return 1; 
+	    if (n % 4 == 2) 
+	        return n + 1; 
+	    else
+	        return 0; 
+	}
+
+* bool isPowerOfTwo(int x) 
+{ 
+     // First x in the below expression is 
+     // for  the case when x is 0  
+     return x && (!(x & (x - 1))); 
+} 
+
+* xor's of xor's of all subsets is always 0 when size > 1
+	-for size 1 ans = arr[0]
+
+* Number of leading zeroes: builtin_clz(x)
+  Number of trailing zeroes : builtin_ctz(x)
+  Number of 1-bits: __builtin_popcount(x) 
+  returs 1 if number has odd parity :- __builtin_parity(x)
+
+
+  * use function_namel() and function_namell() for long and long long int
+
+* Simple approach to flip the bits of a number: It can be done by a simple way, just simply subtract the number from the value obtained when all the bits are equal to 1 .
+
+* set pos bit of num
+	num |= (1 << pos)
+
+* unset pos bit of num
+	num &= (~(1 << pos)); 
+
+* one's complement of a number :- ~num or -num-1
+* two's complement of a number :- ~num+1 or -num
+
+* get lowest set bit
+	- num & (-num) //return 1,2 4,8 in terms of powers of two
+	- so log((num&(-num))) will give lowest set bit
+	- here -num is 2's complement of a number
+
+*  To clear all bits from LSB to i-th bit, we have to AND x with mask having LSB to i-th bit 0. To obtain such mask, first left shift 1 i times. Now if we minus 1 from that, all the bits from 0 to i-1 become 1 and remaining bits become 0. Now we can simply take complement of mask to get all first i bits to 0 and remaining to 1.
+Example-
+x = 29 (00011101) and we want to clear LSB to 3rd bit, total 4 bits
+mask -> 1 << 4 -> 16(00010000)
+mask -> 16 – 1 -> 15(00001111)
+mask -> ~mask -> 11110000
+x & mask -> 16 (00010000)
+
+* ch |= ' ';
+this converts ch from uppercase to lowercase
+A -> 01000001          a -> 01100001
+B -> 01000010          b -> 01100010
+C -> 01000011          c -> 01100011
+  .                               .
+  .                               .
+Z -> 01011010          z -> 01111010
+space character = ' ' -> 00010000
+
+* a==(a|' ') ? "lower" : "upper"
+	distingushes if a is lower or upper
+*** <bitset> in stl
+
+* string ns = bitset<32>(n).to_string();
+	-converts n which is integer into binary and then save as string;
+unsigned long n = bitset<32>(ns).to_ulong;
+	-converts from binary string to decimal
+* count() function in bitset returns number of set bits
+	-bitset<32>(5).count() will return 2;
+
+* set() function sets all the bits
+	- var.set()
+	- var.set(pos) sets bit at pos position
+
+* unset() and flip() has the same syntax
+
+
+******************************************
+
+
+
+
+
+
+
+
+
+

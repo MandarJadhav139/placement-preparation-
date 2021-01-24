@@ -1,0 +1,85 @@
+****use of int_min and int_max makes code more efficient in case of bst.
+*search and insert
+	-https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/
+
+*delete
+	-https://www.geeksforgeeks.org/binary-search-tree-set-2-delete/
+
+*find inorder predecessor and successor
+	-https://www.geeksforgeeks.org/inorder-predecessor-successor-given-key-bst/
+	-root node can be inorder predecessor and successor for a subtree in some cases.
+
+*check if binary tree is bst or not
+	-https://www.geeksforgeeks.org/a-program-to-check-if-a-binary-tree-is-bst-or-not/
+
+*lca(lowest common ancestor) in binary search tree
+	-1.if root > max(x1,x2) return func(root->left,x1,x2);
+	-2.else if root < min(x1,x2) return func(root->right,x1,x2);
+	-3.else return root;
+
+**code :-
+struct Node 
+{ 
+    int key; 
+    struct Node *left, *right; 
+}; 
+
+struct Node *newNode(int item) 
+{ 
+    struct Node *temp =  new Node; 
+    temp->key = item; 
+    temp->left = temp->right = NULL; 
+    
+    return temp; 
+} 
+
+delete(n); or free(n); to delete struct Node *n;
+*******************************************************************
+inteview bit problems:
+
+* validate BST or not from preorder traversal
+	-An Efficient Solution can solve this problem in O(N) time.
+
+	-Create an empty stack.
+	Initialize root as INT_MIN.
+
+	-Do following for every element pre[i]
+		-If pre[i] is smaller than current root, return false.
+
+		-Keep removing elements from stack while pre[i] is greater
+		then stack top. Make the last removed item as new root (to
+		be compared next).
+
+		-At this point, pre[i] is greater than the removed root
+		(That is why if we see a smaller element in step a), we
+		return false)
+		push pre[i] to stack (All elements in stack are in decreasing
+		order)
+*******************************************************************
+practical applications :-
+	- it provides facility of sorting dynamically or in runtime.
+	- in binary search tree elements can be inserted and removed in sorted order efficiently
+
+
+theory :-
+	- left subtree of node has nodes with value < nodes value
+	- right subtree of node has nodes with value > nodes value.
+	- left and right subtree must be also binary search tree.
+
+- use bst in place of hashtable if we want elements in sorted order.
+- cause in bst just an inorder traversal would give us sorted input.
+- but in hashtable this is not possible.
+- it is easy to implement bst.
+
+
+
+
+
+
+
+
+
+
+
+
+

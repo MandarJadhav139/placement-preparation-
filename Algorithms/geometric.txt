@@ -1,0 +1,90 @@
+* convex hull 
+	- jarvis march algorithm  [go to 10:00 for algorithm to get counterclockwise point]
+	//https://www.youtube.com/watch?v=Vu84lmMzP2o
+[simply use right hand thumb rule]
+To find orientation of ordered triplet (p, q, r). 
+-In case of jarvis we take p initially as leftmost point then take the next point as q
+then we find if there is any r such that r is leftmost than q.
+then we update q = r.
+The function returns following values 
+0 --> p, q and r are colinear 
+1 --> Clockwise 
+2 --> Counterclockwise 
+int orientation(Point p, Point q, Point r) 
+{ 
+    int val = (q.y - p.y) * (r.x - q.x) - 
+              (q.x - p.x) * (r.y - q.y); 
+  
+    if (val == 0) return 0;  // colinear 
+    return (val > 0)? 1: 2; // clock or counterclock wise 
+} // we want to have counterclockwise for convex hull
+  
+	-Graham Scan //NOT DONE
+
+	-Quick Hull //https://www.geeksforgeeks.org/quickhull-algorithm-convex-hull/
+
+
+* How to check if given two line segments
+	-https://www.geeksforgeeks.org/check-if-two-given-line-segments-intersect/
+	-find orientation i.e collinear,clockwise or anticlockwise
+	-by same formula given above
+
+* check if given point lies inside polygon
+	-https://www.geeksforgeeks.org/how-to-check-if-a-given-point-lies-inside-a-polygon/
+
+* check if point lies inside a traingle //https://www.geeksforgeeks.org/check-whether-a-given-point-lies-inside-a-triangle-or-not/
+
+1) Calculate area of the given triangle, i.e., area of the triangle ABC in the above diagram.
+given three points :- Area A = [ x1(y2 – y3) + x2(y3 – y1) + x3(y1-y2)]/2
+substraction is not absolute.
+
+given three sides:-
+Area	=	 (	 p	 (	p	−	a	) 	(	p	−	b	)	 (	p	−	c	)  )^1/2
+p=perimeter/2;
+
+2) Calculate area of the triangle PAB. We can use the same formula for this. Let this area be A1.
+3) Calculate area of the triangle PBC. Let this area be A2.
+4) Calculate area of the triangle PAC. Let this area be A3.
+5) If P lies inside the triangle, then A1 + A2 + A3 must be equal to A.
+
+***A+B>C for triangles
+
+* check given four points form square //https://www.geeksforgeeks.org/check-given-four-points-form-square/
+	-The idea is to pick any point and calculate its distance from the rest of the points. Let the picked point be ‘p’. To form a square, the distance of two points must be the same from ‘p’, let this distance be d. The distance from one point must be different from that d and must be equal to √2 times d. Let this point with different distance be ‘q’.
+	The above condition is not good enough as the point with different distance can be on the other side. We also need to check that q is at the same distance from 2 other points and this distance is the same as d.
+
+
+* given set of line segments find how many of them intersect
+	-naive approach i.e find all pairs and then apply orientation algorithm given above
+	-sweep line algorithm //not done yet
+
+* count integral points inside the triangle
+	-use Pick's theorem :- A = I + (E/2) - 1;
+	-A is area of polygon 
+	-I is number of integral points inside the polygon
+	-E is number of integral points on Edges of the polygon
+	-If the edge formed by joining V1 and V2 is parallel 
+   	 to the X-axis, then the number of integral points 
+     between the vertices is : 
+        abs(V1.x - V2.x) - 1
+    -similarly we do for y axis 
+	-we can find the integral points between the
+   	vertices using below formula:
+     GCD(abs(V1.x-V2.x), abs(V1.y-V2.y)) - 1
+    -BoundaryPoints = getBoundaryCount(p, q) + 
+                         getBoundaryCount(p, r) + 
+                         getBoundaryCount(q, r) + 3; 
+	-https://www.geeksforgeeks.org/count-integral-points-inside-a-triangle/	
+
+* count number of rectangles in circle of radius R
+	-length of side of rectange is possible anything from 1 to 2*R-1(i.e less than it's largest diagonal possible or diameter of circle)
+	-for every combination of a,b from 1 to 2*R-1,see if length of diagonal of that rectangle is less than diameter (i.e if a^2+b^2 <= 2R then rectangle is possible )
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,210 @@
+* protocols are set of instructions which make transfer of data possible in easy , reliable and secure way.
+	-e.g if I call tamil guy and speak marathi he can hear voice but can't get what I am saying.
+
+* physical layer deals with physical devices 
+	-converts data in form of bits in frame to signals and signals to bits on other end.
+	-multiplexing :- is a way of sending multiple signals over a communication link at same time in form of a complex  signal.
+		-frequency division multiplexing :- in this method of multiplexing bandwidth is divided into subchannels.
+		-wave-length division multiplexing :- multiple signals with different wavelength
+	-receiver recovers all the signals by the method of demultiplexing.
+	-encoding :- converting digital signal to analog or analog to digital.
+		-manchester and differential manchester
+	-repeaters,hubs
+
+* topologies :-
+	-mesh :- supports point to point communication , high reliability ,high security , high cost.
+	-star :- supports point to point communication , hub,single point of failure(if hub fails) so no reliability.
+	-bus :- no reliability and no security, single point of failure.[LAN]
+			- multipoint connection so collision is there a lot.
+	-ring :- same as bus but is unidirectional and uses ring tokens inorder to avoid collisions.
+	-hybrid
+
+* devices :-
+	-cables :- hardware
+		:- baseband - one signal at a time
+		:- broadband - multiple signals at a time
+	-repeaters :- hardware - regenerates the strength of the signal
+	-hub :- hardware
+	-bridges :- physical and datalink layer , hardware and software,table containing mac address and port number.
+	-router :- network datalink and physical layer , uses IP address , has a routing table.
+
+* circuit switching :- telephone(landline) networks[dedicated transmission path]
+* packet switching :- data link and network layer , store and forward , uses routing table	
+	- datagram switching - connections less,header for each packet 
+	- virtual switching - connection oriented , header for only first packet.
+
+* message switching :- hop by hop delivery,store and forward.
+
+* attenuation :- is lowering of strength or enery of a signal.
+
+* propagation delay is time taken by one bit to reach from point a to point b = propagation speed / links length
+
+* transmission time :- is time taken to transmit all the bits i.e number of bits in packet.
+
+* datalink layer :-
+	- hop to hop delivery(node to node delivery).
+	- flow control :- stop and wait , go back N , selective repeat.
+	- error control :- crc(used in data link layer) , check sum(used in transport layer) , parity bits , hamming code
+	- access control :- csma/cd , aloha and pure aloha
+	- [framing]physical addressing (48 bit)
+
+* error detection and correction :-
+	- detection :- 
+		-crc
+		-checksum
+		-simple parity check
+		-2d parity check
+	-correction 
+		-hamming code //https://www.geeksforgeeks.org/hamming-code-in-computer-network/
+
+* multiple access protocols :- 
+	- random access protocols - aloha , pure aloha , slotted aloha , csma , csma/cd , csma/ca 
+	- control access - polling , token passing
+	- channelization protocols - fdma , tdma.
+
+* pure aloha :- transmission can be started at any time , when collision occurs and sender does not receive ack it waits for some time and sends the data again.
+
+* slotted aloha :- time is divided into slots of time = transmission time , station can start the transmission only at the start of slot.
+
+* csma :- senses the presence of movement in the carrier medium , does not sense the entire medium just the point where it is connected to the medium.
+	- 1 persistent , 0 persistent , p persistent.
+
+* network layer :-
+	-host to host delivery (source to destination delivery)
+	-logical addressing [network address,host address]
+	-routing - protocols - RIP , OSPF , BGP
+	-fragmentation - dividing packets into smaller sizes.
+	-congestion control - leaky bucket method , token bucket method , icmp ,igmp
+	-devices - router , switches
+
+* class full addressing [iana - internet assigned number authority]:-
+	- class A - first bit = 0 , 2^31 addresses present
+			  - 0 to 127 first octet
+			  - 2^7 networks present
+			  - default mask = 255.0.0.0	
+
+	- class B - 10 first two bits , 2^30 addresses
+			  - 128 to 191 first octet
+			  - 2^16 networks present
+			  - default mask = 255.255.0.0	- to get network address of given IP and the IP with default mask
+
+	- class C - 110 first three bits , 2^29 addresses
+			  - 192 to 223 first octet
+			  - 2^21 networks present
+			  - default mask = 255.255.255.0
+
+ 	- class d - 1110 fixed
+ 			  - 224 to 239
+ 			  - 2^28 addresses reserved for multicasting or broadcasting
+
+ 	- class e - 1111 fixed
+ 			  - 240 to 255
+ 			  - 2^28 reserved for military purpose
+
+- class less [cidr - class less inter domain routing ] addressing :- 
+	- notations - x.y.z.w/n - where n is mask or number of bits used to represent network/block
+	- to get network address and ip with mask.
+	- number of hosts = 2^(32-n);
+
+- subnetting - dividing network into logical groups called subnets
+			 - why ? -> management and maintenance becomes easy and convinient
+			 - how to -> if network id = 200.10.20.0 , we have 255 addresses to divide into n subnets suppose n=2
+			 then number of bits required to represent subnets = log(n) = log(2) = 1 so in the last octed if first bit is 0 it represent subnet 1 and if 1 it represent subnet 2.
+			 -subnet mask is used to determine which subnet in the network.
+
+* routing protocols :- 	routing protocols are used in order to maintain dynamic routing tables.
+						intra domain :- 
+							- rip(distance vector) :- sends only distance to only neighbours
+							- ospf(link state) :- sends link state table to all nodes (flooding) , after dijkstra's algorithm is used to prepare routing table for all the nodes.
+
+					   	inter domain :-
+					   		- bgp (path vector)
+
+* transport layer :- 
+	- end to end delivery (port to port delivery)
+	- tcp - reliability , connection oriented , inorder , full duplex
+	- error control - checksum , end to end error control 
+	- flow control
+	- congestion control //https://www.geeksforgeeks.org/congestion-control-in-computer-networks/
+	- segmentation :- adds seq no and port no to data.
+
+* three way handshaking - syn , syn+ack , ack
+	-Step 1 (SYN) : In the first step, client wants to establish a connection with server, so it sends a segment with SYN(Synchronize Sequence Number) which informs server that client is likely to start communication and with what sequence number it starts segments with
+	-Step 2 (SYN + ACK): Server responds to the client request with SYN-ACK signal bits set. Acknowledgement(ACK) signifies the response of segment it received and SYN signifies with what sequence number it is likely to start the segments with
+	-Step 3 (ACK) : In the final part client acknowledges the response of server and they both establish a reliable connection with which they will start the actual data transfer
+
+* piggybacking - in piggybacking while sending data , acknowledgement is also sent through same segment.
+
+* udp :- connection less , no order
+	-e.g dns,dhcp,video streaming,broadcasting
+
+* tcp vs udp :- 
+	-https://www.youtube.com/watch?v=jJyXpMmXJI0&list=PLxCzCOWd7aiGFBD2-2joCpWOLUrDLvVV_&index=56
+
+* session layer :-
+	- authentication - user id and password
+	- authorization
+	- session restoration
+	- session layer code is not provided by os it is there in the application that is being used.
+
+* http vs https :- https://www.keycdn.com/blog/difference-between-http-and-https#:~:text=HTTP%20is%20unsecured%20while%20HTTPS,is%20signed%20by%20a%20CA.
+
+* presentation layer :-
+	- code conversion (ascii->ebcdic)
+	- compression
+	- encryption/decryption
+	- presentation layer code is not present in os it is provided by the application
+
+* application layer :-
+	- ftp
+	- smtp
+	- telnet
+	- http
+	- dns
+
+* domain name system[application layer with http itself] :- maps domain names with ip address.
+	- browser -> resolver -> root server -> (domain name extension)resolver -> authoritative server -> (ip)resolver
+	- request goes from browser to resolver where domain name is resolved from right to left.
+	- suppose youtube.com
+	- first  we get authoritative server(where ip is present of domain name) location of .com from root server 
+	- then we get ip from authoritative server.
+
+	- local cache or dns resolver is provided by isp for frequently used sites so that request need not go to root server.
+	-dns uses udp protocol
+
+* voice over ip :-
+	- is a method and group of technologies for delivery of voice communication and multimedia sessions over ip.
+
+* check sum is basically a hash value that determines if the data sent  is perfectly accurate
+sender sends checksum along with data in tcp header which is calculated again at receiver end if it happens to be different then there is an error.
+
+* cookies is a small piece of data from a specific website stored in users computer 
+	-functions like keeping track of users browsing activities - for advertising purpose
+	-remembering login details
+	-identifying your computer
+
+* ipv4 vs ipv6 
+	-IPv4 is 32-Bit IP address whereas IPv6 is a 128-Bit IP address.
+	-IPv4 is a numeric addressing method whereas IPv6 is an alphanumeric addressing method.
+	-IPv4 binary bits are separated by a dot(.) whereas IPv6 binary bits are separated by a colon(:).
+	-ipv4 has checksum , ipv6 does not
+	-ipv4 has broadcast , ipv6 does not
+	-supports dynamic routing , supports static routing
+
+* window size in sliding window protocols :-
+	- (transmission time + 2 * propagation time)/transmission time
+
+* tcp/ip vs osi
+	-osi is a logical model , tcp/ip is physical,simple and generalized implementation of osi model.
+
+* well known port numbers(examples) :-
+	20-ftp
+	23-telnet (unencryted messaging)
+	25-smtp
+	53-dns
+	80-http
+	443-https
+* https://www.geeksforgeeks.org/difference-between-stateless-and-stateful-protocol/
+
+
+

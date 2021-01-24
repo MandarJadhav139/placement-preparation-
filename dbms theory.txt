@@ -1,0 +1,86 @@
+*functional dependency is a constraint between two or more attributes e.g a->b means a functionally determines b
+	-trivial :- where b is subset of a e.g address->state
+	-non trivial :- b not subset of a or a intersection b is null e.g studentid->name
+	-semi non trivial :- b not subset of a but a intersection b not null
+
+*normalization :- to reduce data redundancy and data inconsistency.
+functional dependency :- every x determines only one y
+1nf:- no multiple values for single attribute.
+2nf:- no partial dependency [student ,course no,course fee]
+3nf:- no transitive dependency[student no,student state,student country]
+bcnf:- for every relation a->b a must be super key
+4nf:- for a->b , if for single value of a multiple values of b exist [i.e no multi valued dependency]
+[person , phone number , food]a->b,a->c,b!->c
+
+*DDL - https://www.geeksforgeeks.org/difference-between-ddl-and-dml-in-dbms/
+
+*DML	
+
+https://www.geeksforgeeks.org/dbms-architecture-2-level-3-level/
+https://www.geeksforgeeks.org/introduction-of-er-model/
+https://www.geeksforgeeks.org/generalization-specialization-and-aggregation-in-er-model/
+https://www.geeksforgeeks.org/introduction-of-relational-model-and-codd-rules-in-dbms/
+https://www.geeksforgeeks.org/relational-model-in-dbms/
+https://www.geeksforgeeks.org/types-of-keys-in-relational-model-candidate-super-primary-alternate-and-foreign/
+https://www.geeksforgeeks.org/normal-forms-in-dbms/
+https://www.geeksforgeeks.org/denormalization-in-databases/
+https://www.geeksforgeeks.org/concurrency-control-in-dbms/
+https://www.geeksforgeeks.org/types-of-schedules-in-dbms/
+https://www.geeksforgeeks.org/indexing-in-databases-set-1/
+b and b+ trees :- https://www.youtube.com/watch?v=aZjYr87r1b8
+******************************************
+sparse indexing :- if every block of records is referred to by one value in index table then it is sparse indexing.
+
+dense indexing :- if every record in table has a entry in index table than it is dense indexing.
+
+primary indexing :- search attribute in index table is primary key . main file is sorted according to primary key.sparse indexing is done.
+
+clustered indexing :- main file is sorted . but sorted on non-key field.it is required when we want to search data using non key field.
+	- there will be one key for every unique value of non key attribute.
+
+non-clustered / secondary indexing :- main file unsorted.only dense indexing.key or non key attribute.
+
+transactions :-
+
+	-acid properties
+	-stages of transactions :- https://www.tutorialspoint.com/dbms/dbms_transaction.htm
+	-dirty read
+	-schedule
+	-conflict serializable :- operation on same data item,one of the operation is write
+	-view serializable
+	-lock based protocol
+	-two phase locking protocol :- https://www.geeksforgeeks.org/two-phase-locking-protocol/
+	-time stamp based protocol :- https://www.geeksforgeeks.org/timestamp-based-concurrency-control/
+	-Deadlock occurs when each transaction T in a schedule of two or more transaction waiting for some item locked by some other transaction T‘ in the set. Thus, both end up in a deadlock situation, 
+	waiting for the other to release the lock on the item. 
+	-deadlock prevention :- wait-die,wound-wait
+	-indexing in database.
+
+
+	-b trees
+	-b+ trees 
+		- these are self managed multi level indexes which can shrink and grow automatically.
+		- it is m-way search tree i.e one node can have m children.	
+
+*Conflicting operations: Two operations are said to be conflicting if all conditions satisfy:
+
+	-They belong to different transactions
+	-They operate on the same data item
+	-At Least one of them is a write operation
+
+
+* codd rules  :- fig sac vhp lid
+	-https://www.geeksforgeeks.org/introduction-of-relational-model-and-codd-rules-in-dbms/
+
+*https://www.geeksforgeeks.org/need-for-dbms/
+	- consistency and redundancy 
+	- indexing for faster access
+	- concurrency and transaction management.
+
+*sql queries
+	-https://www.edureka.co/blog/interview-questions/sql-query-interview-questions
+
+*sql theory
+	-https://www.interviewbit.com/sql-interview-questions/
+
+

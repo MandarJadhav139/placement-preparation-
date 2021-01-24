@@ -1,0 +1,83 @@
+https://www.geeksforgeeks.org/searching-algorithms/
+Algorithms:-
+* FIBONACCI SEARCH => directly see the illustration which is down the page.(needs revision)
+	-F(n - 2) &approx; (1/3)*F(n) and 
+	F(n - 1) &approx; (2/3)*F(n).
+	-https://www.geeksforgeeks.org/fibonacci-search/
+	
+* INTERPOLATION SEARCH
+* TERNARY SEARCH
+
+In built functions :-
+* binary_search(l,r,num) //returns boolean true if present and false if not
+	-works for string arrays also	
+
+* lower_bound(l,r,num) // returns iterator to first element >= num
+* upper_bound(l,r,num) //returns iterator to first element > num
+
+problems:-
+* kth smallest element :- min heap , max heap and quick select(youtube)
+	-[using priority queue]https://www.youtube.com/watch?v=FrWq2rznPLQ
+	-use priority_queue;
+	-push(),pop(),top();
+	-in priority queue large numbers have more priority default
+	-use priority_queue<int,vector<int>,greater<int>> pq;
+
+* magnet array problem :- binary search
+* book allocation / the painters problem :- https://www.youtube.com/watch?v=Ss9ta1zmiZo
+* super prime (requires sieve of eratosthenes algorithm) :- https://www.youtube.com/watch?v=yB57bcffJo4
+* 9 divisors // how to get number of divisors of number N using prime seive :- https://www.youtube.com/watch?v=9kSxipsWu6M
+number of divisors:- d(n)=(a+1)(b+1)(c+1)
+where  N = p1^a * p2^b * p3^c * ....
+https://www.geeksforgeeks.org/generating-all-divisors-of-a-number-using-its-prime-factorization/
+
+
+************************************************
+[book allocation]binary search questions where we take min and max and see for mid if arrangement is possible :-
+if not then we see accordingly in the min to mid and mid+1 to max;
+:-ispossible()
+{
+	count = 0,sum=0;
+	for(i=0 to n)
+	{
+		if(sum+arr[i]>mid)
+		{
+		 	count++;
+		 	sum = arr[i];
+		}
+		else
+		{
+			sum+=arr[i];
+		}
+	}
+	return count;
+}
+
+int main()
+{
+	min,max;
+	mid;
+	while(min<max)
+	{
+		mid = min + (max-min)/2;
+		if(ispossible()<=k)
+		{
+			ans = ispossible();
+			max=mid-1;
+		}
+		else
+		{
+			min = mid;
+		}
+	}
+	return ans;
+}
+
+number of divisors:- d(n)=(a+1)(b+1)(c+1)
+
+where  N = p1^a * p2^b * p3^c * ....
+
+****[imp]https://www.geeksforgeeks.org/generating-all-divisors-of-a-number-using-its-prime-factorization/
+
+product of divisors :- n^(N/2);
+where n is number and N is number of divisors

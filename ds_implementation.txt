@@ -1,0 +1,93 @@
+bubble sort :-https://www.geeksforgeeks.org/bubble-sort/
+	-void bubbleSort(int arr[], int n)  
+	{  
+	    int i, j;  
+	    for (i = 0; i < n-1; i++)      
+	      
+	    // Last i elements are already in place  
+	    for (j = 0; j < n-i-1; j++)  
+	        if (arr[j] > arr[j+1])  
+	            swap(&arr[j], &arr[j+1]);  
+	}  
+	-always O(n^2)
+	-if we add a boolean then if the array is sorted O(n)
+
+insertion sort :-https://www.geeksforgeeks.org/insertion-sort/
+
+	-O(n^2)
+	-worst case if sorted descending
+	-best case if sorted ascending.
+
+selection sort :-https://www.geeksforgeeks.org/selection-sort/
+	-O(n^2)
+	-only makes maximum n swaps
+	-useful when memory write is costly operation.
+
+quick sort :-https://www.geeksforgeeks.org/quick-sort/
+	-quick sort is divide and conquer algorithm
+	-in divide and conquer algorithm we divide problem in smaller problems
+	-we pick an element as pivot
+	-we have to put that pivot element in it's position
+	-worst case is O(n2) when ascending sorted and last element as pivot is taken 
+	because n partitions will be formed and for every partition O(n) operation.
+	-best case is O(nlogn) when always middle element is chosen as pivot.
+
+merge sort :-https://www.geeksforgeeks.org/merge-sort/
+
+bst implementation :-https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/
+	-https://www.geeksforgeeks.org/binary-search-tree-set-2-delete/
+
+inorder , preorder,post order :- 
+	-https://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion/
+	-https://www.geeksforgeeks.org/iterative-preorder-traversal/
+	-https://www.geeksforgeeks.org/iterative-postorder-traversal-using-stack/
+
+dfs :-O(V+E)
+	-dfs is algorithm for tree or graph traversal.
+
+bfs :-O(V+E)
+
+prims :-https://www.geeksforgeeks.org/prims-minimum-spanning-tree-mst-greedy-algo-5/
+	-Time Complexity of the above program is O(V^2). If the input graph is represented using adjacency list, then the time complexity of Prim’s algorithm can be reduced to O(E log V) with the help of binary heap.
+	-At every step, it considers all the edges that connect the two sets, and picks the minimum weight edge from these edges. 
+	-The idea behind Prim’s algorithm is simple, a spanning tree means all vertices must be connected. So the two disjoint subsets (discussed above) of vertices must be connected to make a Spanning Tree. And they must be connected with the minimum weight edge to make it a Minimum Spanning Tree.
+
+kruskals :-O(ElogE) or O(ElogV). Sorting of edges takes O(ELogE) time. After sorting, we iterate through all edges and apply find-union algorithm. The find and union operations can take atmost O(LogV) time. So overall complexity is O(ELogE + ELogV) time. 
+
+applications of mst :-
+	-telephone, electrical, hydraulic, TV cable, computer, road
+
+dijkstra's :-https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/
+-O(v2)
+
+
+difference between prims and dijkstra's :-
+	-dikstra's finds out shortest path from source vertex to all other vertices.
+	-prims finds minimum weighted network that connects all the nodes.
+
+
+binary search :- binary search is a divide and conquer algorithm
+	- problem is divided into smaller problems 
+	- for binary search to work we need array sorted.
+	- if array is not sorted then linear search is good.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

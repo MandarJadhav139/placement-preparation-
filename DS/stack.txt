@@ -1,0 +1,85 @@
+**Applications
+	-Balancing of symbols
+	-Infix to Postfix /Prefix conversion
+	-Redo-undo features at many places like editors, photoshop.
+	-Forward and backward feature in web browsers
+	-Used in many algorithms like Tower of Hanoi, tree traversals, stock span problem, histogram problem.
+	-Other applications can be Backtracking, Knight tour problem, rat in a maze, N queen problem and sudoku solver
+	-In Graph Algorithms like Topological Sorting and Strongly Connected Components
+
+*infix to postfix
+	-https://www.geeksforgeeks.org/stack-set-2-infix-to-postfix/
+	-1.scan infix from left to right
+		-if s[i]==operand print s[i]
+		-else if s[i]=='(' push '(' to stack
+		-else if s[i]==')' print stack[top] until stack[top]=='(' 
+		-else 
+			-if precedence(s[i])<=precedence(stack[top])
+				-pop all stack[top] whose precedence is greater
+				-push(s[i])
+			-else push(S[i])
+
+*evaluation of postfix expression
+	-https://www.geeksforgeeks.org/stack-set-4-evaluation-postfix-expression/
+
+*check for balanced parantheses
+	-if starting bracket -> push
+	-else if ending bracket != stack[top] {"not balanced"}
+	-after whole traversal if stack.isempty()==false {"not balanced"}
+	-else "balanced"
+
+*stock span problem
+	-s[0]=1;push(0);
+	-for i = 1 to < n :
+		-while(stack[top]<arr[i]){pop()};
+		-if stack.isempty() s[i]=i+1
+		-else s[i] = i-stack[top]
+		-push(i)
+
+*largest area under histogram
+	-https://www.geeksforgeeks.org/largest-rectangle-under-histogram/
+
+*preorder to postorder BST
+	-https://practice.geeksforgeeks.org/editorial.php?pid=559
+	-use recursion
+	-use max and min 
+
+*maximum area rectangle in matrix with only 1's
+	-https://practice.geeksforgeeks.org/editorial.php?pid=700288
+
+*check mirror in n ary tree
+	-https://www.geeksforgeeks.org/check-mirror-n-ary-tree/
+	-use stack and queue for each node and connected nodes
+
+*check if two trees are mirror
+	-https://www.geeksforgeeks.org/check-if-two-trees-are-mirror/
+	-Their root node’s key must be same
+	-Left subtree of root of ‘a’ and right subtree root of ‘b’ are mirror.
+	-Right subtree of ‘a’ and left subtree of ‘b’ are mirror.
+
+*https://www.techiedelight.com/decode-the-given-sequence-construct-minimum-number-without-repeated-digits/
+
+*get minimum element from stack in O(1)
+	-https://practice.geeksforgeeks.org/editorial.php?pid=700278
+	-if x<minel then push 2*x-minel
+		minel = x
+	-if while popping 
+		stack.top<minel
+		minel = 2*minel-stack.top
+
+
+*******************************************************************
+-practical applications :-
+	-undo
+	-back button of browsers
+	-maintaing activation records of functions
+	-evaluating mathematical expressions
+	
+theory :-
+linear data structure with last in first out.
+
+
+
+
+
+	

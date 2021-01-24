@@ -1,0 +1,236 @@
+**sql vs nosql
+-structured , not structured
+-In almost all situations SQL databases are vertically scalable. This means that you can increase the load on a single server by increasing things like RAM, CPU or SSD. But on the other hand NoSQL databases are horizontally scalable. This means that you handle more traffic by sharding, or adding more servers in your NoSQL database.
+
+-SQL databases follow ACID properties (Atomicity, Consistency, Isolation and Durability) whereas the NoSQL database follows the Brewers CAP theorem (Consistency, Availability and Partition tolerance).
+  -https://towardsdatascience.com/cap-theorem-and-distributed-database-management-systems-5c2be977950e
+
+*mysql:-
+
+-What is an index?
+A database index is a data structure that improves the speed of data retrieval operations on a database table at the cost of additional writes and the use of more storage space to maintain the extra copy of data. Data can be stored only in one order on disk. To support faster access according to different values, faster search like binary search for different values is desired. For this purpose, indexes are created on tables. These indexes need extra space on disk, but they allow faster search according to different frequently searched values.
+
+-mysql - free,scalable,secure,fast.
+
+-INT,BIGINT,FLOAT,DOUBLE,BOOLEAN,VARCHAR
+
+*****************************************************************************
+CREATE DATABASE NAME;
+
+SHOW DATABASES;
+
+USE NAME;
+
+mysql> SHOW DATABASES LIKE pattern;  //pattern can be "%schema" where % is zero + characters.
+OR,  
+mysql> SHOW DATABASES WHERE expression;
+
+drop database name;	
+
+mysql> CREATE TABLE employee_table(  
+    id int NOT NULL AUTO_INCREMENT,  
+    name varchar(45) NOT NULL,  
+    occupation varchar(35) NOT NULL,  
+    age int NOT NULL,  
+    PRIMARY KEY (id)  
+);  
+
+show tables;
+SHOW TABLES FROM mystudentdb; 
+
+describe table_name;
+
+ALTER TABLE cus_tbl  
+ADD cus_age varchar(40) NOT NULL; 
+
+ALTER TABLE cus_tbl  
+MODIFY cus_surname varchar(50) NULL; 
+
+ALTER TABLE cus_tbl  
+DROP COLUMN cus_address;  
+
+ALTER TABLE  cus_tbl  
+CHANGE COLUMN cus_surname cus_title  
+varchar(20) NOT NULL;  
+
+ALTER TABLE cus_tbl  
+RENAME TO cus_table;  	
+
+The TRUNCATE TABLE statement is used when you want to delete the complete data from a table without removing the table structure
+TRUNCATE TABLE  table_name;  
+
+drop table is ddl statement it deletes the whole table or column or database, memory is also deleted;
+truncate drops the table and creates the table again so it is more efficient than delete , ddl
+delete deletes row by row or tuple by tuple , dml
+
+
+CREATE VIEW Trainer       
+AS SELECT c.course_name, c.trainer, t.email       
+FROM courses c, contact t   
+WHERE c.id = t.id;
+
+insert into customers values(101,'rahul','delhi');  
+
+update customers set name='bob', city='london' where id=101;  
+
+delete from customers where id=101; 		
+
+contraints :- NOT NULL
+CHECK
+DEFAULT
+PRIMARY KEY
+AUTO_INCREMENT
+UNIQUE
+INDEX
+ENUM
+FOREIGN KEY
+
+mysql> CREATE TABLE Persons (  
+    ID int NOT NULL,  
+    Name varchar(45) NOT NULL,  
+    Age int CHECK (Age>=18)  
+);  
+
+CREATE TABLE Orders (  
+    Order_ID int NOT NULL PRIMARY KEY,  
+    Order_Num int NOT NULL,  
+    Person_ID int,  
+    FOREIGN KEY (Person_ID) REFERENCES Persons(Person_ID)  
+); 
+
+
+mysql> CREATE TABLE t_index(  
+   col1 INT PRIMARY KEY,  
+   col2 INT NOT NULL,  
+   col3 INT NOT NULL,  
+   col4 VARCHAR(20),  
+   INDEX (col2,col3)   
+);  
+ CREATE INDEX [index_name] ON [table_name] (column names)  
+
+ ALTER TABLE Persons ADD PRIMARY KEY(Person_ID);  
+*****************************************************************
+SELECT address, COUNT(*)  
+FROM   officers   
+GROUP BY address;
+
+SELECT emp_name, SUM(working_hours) AS "Total working hours"  
+FROM employees  
+GROUP BY emp_name  
+HAVING SUM(working_hours) > 5;  
+
+SELECT lastname,  
+IF(age>20,"Mature","Immature")    
+As Result  
+FROM student;  
+
+SELECT studentid, firstname,  
+ CASE class   
+    WHEN 'CS' THEN 'Computer Science'   
+    WHEN 'EC' THEN 'Electronics and Communication'   
+    ELSE 'Electrical Engineering'   
+END AS department from students;  
+
+IF condition THEN  
+   statements;  
+ELSEIF elseif-condition THEN  
+   elseif-statements;  
+...  
+ELSE  
+   else-statements;  
+END IF;  
+
+mysql> SELECT name, occupation FROM customer  
+WHERE EXISTS (SELECT * FROM Orders   
+WHERE customer.cust_id = Orders.cust_id);  
+
+NOT LIKE,NOT IN,IS NOT
+
+https://www.javatpoint.com/mysql-self-join
+
+SELECT columns  
+FROM table1   
+INNER JOIN table2  
+ON table1.column = table2.column; 
+
+https://www.javatpoint.com/mysql-count
+
+count(),sum(),min(),max(),avg()
+
+limit n;
+limit offset,n;
+
+union
+
+CREATE TRIGGER trigger_name  
+{ AFTER | BEFORE } {INSERT | UPDATE| DELETE }  
+ON tab_name FOR EACH ROW  
+BEGIN    
+    --variable declarations    
+    --trigger code    
+END
+
+DELIMITER $$
+
+CREATE PROCEDURE GetOrderCountByStatus (
+  IN  orderStatus VARCHAR(25),
+  OUT total INT
+)
+BEGIN
+  SELECT COUNT(orderNumber)
+  INTO total
+  FROM orders
+  WHERE status = orderStatus;
+END$$
+
+DELIMITER ;
+If you want to save a query on the database server for execution later, one way to do it is to use a stored procedure.
+CALL GetCustomers();//GetCustomers is procedure
+CALL GetOrderCountByStatus('Shipped',@total);
+SELECT @total;
+
+DELIMITER $$  
+   
+CREATE FUNCTION function_name(parameter(s))  
+RETURNS datatype  
+[NOT] {DETERMINISTIC, NO SQL, or READS SQL DATA}  
+BEGIN  
+ -- SQL statements  
+END $$  
+   
+DELIMITER ;  
+
+DECLARE cursor_name CURSOR FOR SELECT_statement;
+OPEN cursor_name;
+FETCH cursor_name INTO variables list;;
+close cursor_name;
+
+You define a DELIMITER to tell the mysql client to treat the statements, functions, stored procedures or triggers as an entire statement. Normally in a . sql file you set a different DELIMITER like $$.
+
+The MySQL NATURAL JOIN is structured in such a way that, columns with the same name of associate tables will appear once only.
+In MySQL, the NATURAL JOIN is such a join that performs the same task as an INNER, in which the ON or USING clause refers to all columns that the tables to be joined have in common.
+
+how is a query evaluated (order):-
+from -> where -> select -> group by -> having -> order by -> limit
+
+https://www.geeksforgeeks.org/print-different-star-patterns-sql/
+
+https://www.mysqltutorial.org/mysql-alias/
+	
+https://www.mysqltutorial.org/mysql-subquery/
+
+difference between procedure and functions :-
+  -The function must return a value but in Stored Procedure it is optional. Even a procedure can return zero or n values.
+
+  -Functions can have only input parameters for it whereas Procedures can have input or output parameters.
+
+  -Functions can be called from Procedure whereas Procedures cannot be called from a Function.
+
+  -The procedure allows SELECT as well as DML(INSERT/UPDATE/DELETE) statement in it whereas Function allows only SELECT statement in it.
+
+
+
+
+
+
+

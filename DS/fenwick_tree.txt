@@ -1,0 +1,28 @@
+** Binary Indexed Trees or Fenwick Trees
+space = O(n)
+time (creation) = O(n*log(n))
+time (findsum) = O(logn)
+time (updation) = O(logn)
+
+*** n+(n&-n) ...update function
+	n-(n&-n) ...search function
+
+**concept:- https://www.youtube.com/watch?v=CWDQJGaN1gY
+code :- https://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2/
+
+** 2d fenwick tree
+concept :- https://www.youtube.com/watch?v=nFbfTiUQkOY
+
+* range update queries (same as segment trees)
+https://www.geeksforgeeks.org/binary-indexed-tree-range-updates-point-queries/
+-update position l by val which will increment arr[l] to arr[size] by val
+-update position r by -val which will decrement arr[r]  to arr[size] by -val
+
+*https://www.youtube.com/watch?v=fgEe-iPdqeI
+
+
+***********************************************************
+practical applications :-
+	- to calculate prefix sum
+
+

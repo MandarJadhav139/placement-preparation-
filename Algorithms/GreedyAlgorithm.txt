@@ -1,0 +1,37 @@
+* Activity selection problem :- //https://www.geeksforgeeks.org/activity-selection-problem-greedy-algo-1/
+	- sort according finish time 
+
+* Huffman Coding :- //https://www.geeksforgeeks.org/huffman-coding-greedy-algo-3/
+	-You can find Huffman Coding applied in compression algorithms like DEFLATE (used in PKZIP), JPEG, and MP3.
+
+* k centers problem :- //https://www.geeksforgeeks.org/k-centers-problem-set-1-greedy-approximate-algorithm/
+ 	- NP hard problem
+ 	- optimal solution is obtained only if triangular inequality is followed (i.e distance between two nodes should be smaller than sum of distances through third point i.e x <= y+z)
+
+* minimum number of platforms required for a railway or bus station
+ 	- merge sort
+
+* maximum length chain of pairs
+ 	- dynamic programming (n^2)
+ 	//https://practice.geeksforgeeks.org/problems/max-length-chain/1
+
+* least recently used algorithm
+  	-//https://practice.geeksforgeeks.org/problems/page-faults-in-lru/0	
+
+* coin change (minimum number of coins required to get total)
+	-//https://www.youtube.com/watch?v=Y0ZqKpToTic
+
+* coin change (number of ways to get given total amount of money)
+	-//https://www.youtube.com/watch?v=_fgjrs570YE
+
+* minimize the maximum difference between the heights
+	-//https://www.geeksforgeeks.org/minimize-the-maximum-difference-between-the-heights/
+
+* water connection problem //https://www.geeksforgeeks.org/water-connection-problem/
+	- dfs
+
+**Interview bit problems
+
+*https://www.interviewbit.com/problems/seats/
+
+*https://www.interviewbit.com/problems/gas-station/

@@ -1,0 +1,3 @@
+**https://www.geeksforgeeks.org/suffix-array-set-1-introduction/
+
+*https://www.geeksforgeeks.org/count-distinct-substrings-string-using-suffix-array/

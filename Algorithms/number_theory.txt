@@ -1,0 +1,196 @@
+* AP 	:- tn = a+(n-1)d
+		:- sn = n/2[2a+(n-1)d]
+		:- sn = n/2[a+L(last term)]
+
+* GP 	:- tn = ar^(n-1)
+		:- sn = a(r^n-1)/(r-1)
+
+* sum of squares of first n natural numbers
+	-[n(n+1)(2n+1)]/6
+
+* sum of cubes of first n natural numbers
+	-[[n(n+1)]/2]^2
+
+***  read interesting facts //https://www.geeksforgeeks.org/number-theory-interesting-facts-and-algorithms/	
+
+* Perfect numbers are those numbers which are equal to the sum of their proper divisors.
+ Example: 6 = 1 + 2 + 3
+
+* Fermat's last theorem :- : According to the theorem, no three positive integers a, b, c satisfy the equation, a^n + b^n = c^n for any integer value of n greater than 2. For n = 1 and n = 2, the equation have infinitely many solutions.
+
+* GCD of elements in array :- ans = gcd(arr[0],arr[1])
+							ans = gcd(ans,arr[2])
+							ans = gcd(ans,arr[i])
+
+* LCM of elements in array :- same as GCD
+	-only thing is use gcd as a*b = gcd(a,b)*lcm(a,b) to find lcm
+
+* get all Prime factors for N //https://www.geeksforgeeks.org/prime-factorization-using-sieve-olog-n-multiple-queries/
+
+*** Find politeness of a number
+	- Politeness of a number is defined as the number of ways it can be expressed as the sum of consecutive integers.
+	-this equals to number of odd prime factors of a number -1;
+
+* A Smith Number is a composite number whose sum of digits is equal to the sum of digits in its prime factorization.
+
+*** Interesting facts about fibonacci numbers
+	-https://www.geeksforgeeks.org/interesting-facts-fibonacci-numbers/		
+
+* Find if given number is fibonacci number or not
+	-A number is Fibonacci if and only if one or both of (5*n^2 + 4) or (5*n^2 – 4) is a perfect square
+
+* 	Every 3-rd Fibonacci number is a multiple of 2
+	Every 4-th Fibonacci number is a multiple of 3
+	Every 5-th Fibonacci number is a multiple of 5
+	Every 6-th Fibonacci number is a multiple of 8
+
+* binomial coefficient
+	- overlapping subproblem :- c(n,k) = c(n-1,k-1) + c(n-1,k) //use 2D [n*k]matrix in  DP
+
+* Modular Arithmetic :-
+	- mod multiplication = (ab) mod p = ( (a mod p) (b mod p) ) mod p 
+	- mod multiplicative inverse theory [fermat's little theorem => a^(m-1)=1(mod m)]
+		- https://www.geeksforgeeks.org/multiplicative-inverse-under-modulo-m/
+		- code is in templates file
+
+	- modular division
+		-(a/b)%mod = ((a%mod)*(modinverse(b)%mod))%mod
+	- modular substraction
+		-(a - b + m) % m = ((a % m) - (b % m) + m) % m 
+
+	- square root of N mod P
+		- when y^2 = N mod P then we say y is square root of N mod P
+		- how to tell if solution exists => https://www.youtube.com/watch?v=_6f0vMfBDLA
+		- this tells us that if y^2 = N mod P has solution if and only if N^((p-1)/2)[mod P]=1
+		- solution is y = + or -[N^((P+1)/4) ]... where P is 4n+3 form //https://www.youtube.com/watch?v=dSIkv9U5WO8
+
+	- How to use BigInteger class of java for extra large integers 
+		-https://www.geeksforgeeks.org/biginteger-class-in-java/
+
+
+	- coprime = relatively prime if and only if gcd(a,b)=1
+	- euler's totient function :- phi(n) = count of numbers from 1 to n that are coprime with n
+		-phi(n) = n-1 if n is prime
+		-phi(n) = phi(a)*phi(b) if n=a*b and a and b are both prime numbers
+		-[see prime factor wala method (1-1/n)]https://www.geeksforgeeks.org/eulers-totient-function/
+		-int phi(int n) 
+		{ 
+		    float result = n; // Initialize result as n 
+		  
+		    // Consider all prime factors of n and for every prime 
+		    // factor p, multiply result with (1 - 1/p) 
+		    for (int p = 2; p * p <= n; ++p) { 
+		          
+		        // Check if p is a prime factor. 
+		        if (n % p == 0) { 
+		              
+		            // If yes, then update n and result 
+		            while (n % p == 0) 
+		                n /= p; 
+		            result *= (1.0 - (1.0 / (float)p)); 
+		        } 
+		    } 
+		  
+		    // If n has a prime factor greater than sqrt(n) 
+		    // (There can be at-most one such prime factor) 
+		    if (n > 1) 
+		        result *= (1.0 - (1.0 / (float)n)); 
+		  
+		    return (int)result; 
+		} 
+
+	- euler's theorem :- if a and n are coprime then a^phi(n)=1(mod P)
+	so when n is prime it results in fermat's little theorem.
+
+	- Chinese Remainder Theorem :- https://www.youtube.com/watch?v=Fyr9rUWhhTM\
+		- x = a1(mod m1) x = a2(mod m2) x=a3(mod m3) then 
+			x = (M1X1a1 + M2X2a2 + M3X3a3)(mod M)
+			M = m1*m2*m3 , M1 = M/m1 ,M2 = M/m2,M3 = M/m3
+			M1*X1 = 1(mod m1),M2*X2 = 1(mod m2),M3*X3 = 1(mod m3)
+			m1,m2,m3 must be coprime otherwise x does not exist
+
+	- legendre's formula (highest power of prime number that divides n!)
+		-****[imp]https://www.geeksforgeeks.org/legendres-formula-highest-power-of-prime-number-that-divides-n/
+		-while (n)  
+	    {  
+	        n /= p;  
+	        x += n;  
+	    } 
+
+	- sum of factors or divisors of N
+		N = 1100 = 2^2 * 5^2 * 11.
+		sum = (2^0+2^1+2^2)*(5^0+5^1+5^2)*(11^0+11^1) = 7*31*12 = 2604
+
+	- wilson's theorem of primality //https://www.geeksforgeeks.org/wilsons-theorem/
+		-p is prime if (p-1)! = -1(mod p)
+							or	= (p-1) (mod p)
+
+	- prime number is of form 6*k+1 and 6*k-1 except for 2 and 3 //https://www.geeksforgeeks.org/primality-test-set-1-introduction-and-school-method/
+
+	- Segmented Sieve :- //https://www.youtube.com/watch?v=fByR5N-TseY
+		-use this when N is very large than 10^8 that is why sieve of erathosthenes cannot be used
+		-here we for getting all primes from 2 to (r)^1/2
+		-calculate primes from 1 to (r)^1/2 using sieve
+		-then using sieve calculate from l to r for every prime calculated if divisible or not
+
+	- divisible by 11 trick : - abs(sum of digits at odd places - sum of digits at even places) % 11 = 0 
+	then the number is divisible by 11
+
+	- divisible by 999 :-
+		-Input : 1244633121
+		Step I - read input : 1, 244, 633, 121
+      	Step II - 001 + 244 + 633 + 121 = 999
+      	-A number is divisible by 999 if sum of its 3-digit-groups is divisible by 999
+
+     - factorial of large numbers //https://www.geeksforgeeks.org/factorial-large-number/
+     	-use array to store ans;
+     	-multiply every number from 1 to n to the ans and update ans;
+
+     - count number of arrays possible of length n [element of array consists from 1 to m]
+     	where adjacent elements are either multiples or factors
+     	https://www.geeksforgeeks.org/count-arrays-adjacent-elements-one-divide-another/
+     	-use dp[i][j]
+     	-precompute factor and multiple for every element
+     	-i is size of array and j is starting from
+
+     - sum of all numbers that can be formed with permutation of n digits
+     https://www.geeksforgeeks.org/sum-numbers-can-formed-permutations-n-digits/
+     	-here every digit occurs at ith place for n!/n times 
+     	-sum at ith position is (sum of all digits)*n!/n
+
+     - if A XOR B = C THEN 
+     	-A XOR C = B AND B XOR C = A
+
+     - Matrix exponentiation //https://www.youtube.com/watch?v=EEb6JP3NXBI
+
+     - count all divisors of factorial 
+     	-https://www.geeksforgeeks.org/count-divisors-of-factorial/
+
+     - number of primes from l to r //https://practice.geeksforgeeks.org/editorial.php?pid=2928
+     	-use of prefix sum array
+     
+
+     - Stars and Bars method //https://www.youtube.com/watch?v=UTCScjoPymA
+     	-if there are n option to choose for filling m places and each of option can be chose from 0 to m times then this method can be applied.
+     	-we have n-1 bars and m stars and m+n-1 places we just want to fill those places with n-1 bars and m stars.This will give all the permutations.
+     	-formula :- (m+n-1)c(n-1).
+
+     - Find if N can be represented as multiplication of m numbers.
+     	-https://www.geeksforgeeks.org/find-if-n-can-be-written-as-product-of-k-numbers/
+     	-	// This is to handle when n > 2 and 
+    		// n is prime 
+    		if (n > 2) 
+        		P.push_back(n);
+        	//this condition is important
+        	//that is if remaining number is prime after dividing then that number should also be counted in divisors.
+
+        
+     
+
+
+
+
+
+
+
+

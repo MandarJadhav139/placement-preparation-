@@ -1,0 +1,43 @@
+* segment is constructed using array
+//video ref is segment trees by coding blocks 
+//[41:00](build segment tree)time code is explained
+//[1:17:00](query)
+	- full binary tree
+ 	- it starts from index 1 of array which is root of tree
+ 	- followed by its children 2 and 3
+ 	- 2 has 4 and 5 , 3 has 6 and 7
+ 	- so basically if "i" is parent its children are "2i" and "2i+1";
+ 	- parent of ith element is "i/2"
+ 	- size of tree if n elements are present is 2n-1
+ 	- n leaf nodes and n-1 internal nodes
+ 	- but array size differs as there are many empty places in trees
+ 	- so array size is [2*(2^ceil(log2(n))] - 1 == approx [4*n + 1]
+
+ 	- segment tree construction O(n)
+ 	- range query O(logn)
+ 	- update O(logn)
+
+***https://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/
+
+*** problems :-
+* https://www.geeksforgeeks.org/smallest-subarray-with-given-gcd/
+
+***************************************************************
+theory :- 
+	- subrange queries [search]
+	- update queries.
+
+* practical applications :-
+	- to calculate strike rate from nth over to mth over in websites like crickbuzz
+	- to calculate average speed from time x to y in a formula one race.
+	- corona virus patients count in a certain specified region.
+
+
+
+
+
+
+
+
+
+

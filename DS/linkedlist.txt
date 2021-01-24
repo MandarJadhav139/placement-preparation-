@@ -1,0 +1,100 @@
+**Advantages over array :- size of array is fixed.
+	- hence for insertion in between the array we have to move all the elements to right and then insert
+	- for deletion we have to move all elements to its right to left and decrease the size by one.
+
+**disadvantages:-
+	-random access is not allowed
+	-extra memory for pointer
+	-linked list nodes are not contiguous in case of memory unlike array
+	-so if one node is at 100 next node can be on 900
+
+**Generic pointer[NOT DONE]
+
+*detect and remove loop in the linked list(floyd's cycle detection algo)
+	-https://www.youtube.com/watch?v=zbozWoMgKW0
+	-step 1:detect loop
+	-step 2:get starting point of the loop
+	-void detectAndRemoveLoop(Node* head)
+{
+    // If list is empty or has only one node
+    // without loop
+    if (head == NULL || head->next == NULL)
+        return;
+
+    Node *slow = head, *fast = head;
+
+    // Move slow and fast 1 and 2 steps
+    // ahead respectively.
+    slow = slow->next;
+    fast = fast->next->next;
+
+    // Search for loop using slow and
+    // fast pointers
+    while (fast && fast->next) {
+        if (slow == fast)
+            break;
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+
+    /* If loop exists */
+    if (slow == fast) {
+        slow = head;
+        while (slow->next != fast->next) {
+            slow = slow->next;
+            fast = fast->next;
+        }
+
+        /* since fast->next is the looping point */
+        fast->next = NULL; /* remove loop */
+    }
+}
+
+
+**merge k sorted lists
+	-1) consider lists in pairs of two and merge them
+	-2) we will get k/2 lists again go to step 1.
+	-3) finally we will get 1 list 
+
+*https://www.geeksforgeeks.org/delete-nodes-which-have-a-greater-value-on-right-side/
+	-reverse the list
+	-store max till now
+	-if val < max then delete the node
+
+**flattening a linked list
+	-https://www.geeksforgeeks.org/flattening-a-linked-list/
+    -merge sort
+
+**LRU cache 
+	-https://www.youtube.com/watch?v=NDpwj0VWz1U
+	-(use vector to add and remove)use doubly linked list for add and remove functions 
+	-use hashmap for getting and setting value
+
+*sort a linked list
+-https://www.youtube.com/watch?v=pNTc1bM1z-4
+-use merge sort
+
+*k reverse linked list
+-code in notes folder
+-https://www.interviewbit.com/problems/k-reverse-linked-list/
+-see the complete solution
+-use funtion that gets pointer and size and which returns reverse linked list of size k
+
+*swap list nodes in pairs
+-https://www.interviewbit.com/problems/swap-list-nodes-in-pairs/
+
+***********************************************
+practical applications :-
+    -implementing stack,queues,graph,trees
+    -for scheduling process in os all the pcb's of processess are connected in linked list.
+    -directory hierarchy
+    -music player
+    -image viewer
+    -browers - back and front
+
+
+
+
+
+
+

@@ -1,0 +1,133 @@
+* calculate time complexity of recursive function 
+	-https://www.youtube.com/watch?v=gCsfk2ei2R8	
+	-method 1:back substitution
+	-method 2:recursion tree
+
+*master theorem
+	-https://www.youtube.com/watch?v=lPUhHmgrpik
+
+**** print all permutations of a string 
+	-https://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/
+
+**** The knight's tour problem
+	-https://www.geeksforgeeks.org/the-knights-tour-problem-backtracking-1/
+
+* Rat's maze problem
+	-https://www.geeksforgeeks.org/rat-in-a-maze-backtracking-2/
+
+**** N-Queen's problem
+	-https://www.geeksforgeeks.org/n-queen-problem-backtracking-3/
+
+* Hamiltonian Cycle
+	-backtracking
+
+* Sudoku
+	-backtracking
+
+* problems
+
+* https://www.geeksforgeeks.org/non-crossing-lines-connect-points-circle/
+	-catalan number //https://www.youtube.com/watch?v=0s20L4-chDA
+	-recurrence relation :- f(0)=1,f(n) = summation 0 to n [f(i)*f(n-i)] ...(derive all n values using DP)
+	-catalan[0] = catalan[1] = 1; 
+  
+    // Fill entries in catalan[] using recursive formula 
+    for (int i=2; i<=n; i++) 
+    { 
+        catalan[i] = 0; 
+        for (int j=0; j<i; j++) 
+            catalan[i] += catalan[j] * catalan[i-j-1]; 
+    } 
+	-standard problem is number of BST possible with n nodes
+	-to get nth catalan number directly use formula :- 2ncn/(n+1)....(2ncn is combination from permutation and combination)
+
+* catalan series :- 1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862,.........
+
+* Count the number of expressions containing n pairs of parentheses which are correctly matched. For n = 3, possible expressions are ((())), ()(()), ()()(), (())(), (()()).
+
+* number of unlabelled binary trees(different structures of trees without any data in nodes) in same as number of BST is same number of full binary trees with n+1 leaves is same as catalan number
+
+* number of binary trees is :- n!*catalan(n)
+
+* Print maximum A's using 4 keys
+	-https://www.geeksforgeeks.org/how-to-print-maximum-number-of-a-using-given-four-keys/		
+	-see 3 rd solution of dp
+	-O(n)
+
+* word break problem
+	-https://www.youtube.com/watch?v=WepWFGxiwRs
+	-dynamic programming problem //https://www.geeksforgeeks.org/word-break-problem-dp-32/
+	-see the last solution of above link
+
+* power set
+	-https://www.geeksforgeeks.org/power-set/
+
+* replace all O's with X's
+	-https://www.geeksforgeeks.org/given-matrix-o-x-replace-o-x-surrounded-x/
+	-use Flood Fill algorithm
+
+* Boggle - get all the dictionary words in 2d matrix
+	-Explaination :- https://www.youtube.com/watch?v=aholjVetVDQ
+	-use trie to search a valid word in dictionary [i.e trie of dictionary words]
+	-Implementation :- https://www.geeksforgeeks.org/boggle-set-2-using-trie/
+
+* M coloring problem - same as other backtracking problem
+
+* Maximum path sum in binary tree
+	-https://www.youtube.com/watch?v=mOdetMWwtoI
+	
+* Not yet solved 
+	- partition array to k subsets with same sum of elements
+	
+
+*************
+nqueens:-//this is main template to solve any problem in recursion
+	ifsafe()
+	{
+		conditions :- visited or not 
+					  out of array 
+
+	}
+	rec()
+	{
+		base case for true;
+
+		for()
+		{
+			if(rec())return true;
+			else mark as not visited;
+
+		}
+		return false;
+	}
+	int main()
+	{
+		if(rec())cout<<;
+		else cout<<;
+	}
+
+subsets :- https://www.interviewbit.com/problems/subsets-ii/
+-while creating required subsets always sort the input array initially for ease.
+void findsubet(vector<int> &A,vector<vector<int> > &res,vector<int> &curr, int index)
+{
+    res.push_back(curr);
+    for(int i=index;i<A.size();i++)
+    {
+        curr.push_back(A[i]);
+        // this condition for non duplicacy
+        if(i==index || A[i]!=A[i-1])
+            findsubet(A,res,curr,i+1);
+        
+        curr.pop_back();
+    }
+    return ;
+
+}
+vector<vector<int> > Solution::subsetsWithDup(vector<int> &A) 
+{
+    sort(A.begin(),A.end());
+    vector<vector<int> > res;
+    vector<int> curr;
+    findsubet(A,res,curr,0);
+    return res;
+} 

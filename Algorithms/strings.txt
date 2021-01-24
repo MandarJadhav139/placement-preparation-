@@ -1,0 +1,153 @@
+**** A = 65 , Z = 90
+	 a = 97 , z = 122
+	 0 = 48 , 9 = 57
+	 " " = 32
+	 we get this when we do (int)s[i];
+
+** if string s = "123" is to be converted to int x = 123
+	then x = stoi(s);
+
+** string s = to_string(123)
+
+** char to int :- char c = '2';
+				  int num = char - 48 or char - '0';
+
+** strcmp(s1,s2) :-if s1<s2 returns negative value
+					if s1==s2 returns 0;
+					if s1>s2 return positive value;
+
+** strcasecmp(s1,s2) ignores case and compares string
+
+** tolower(char) , toupper(char) return type char / int
+
+** strcat(s1,s2)
+
+** string s = str.substr(pos,len);//pos is int and not iterator.
+
+** string::iterator x = str.find(pattern,pos,len);// returns position of first character of the pattern in str.
+	- if find does not get the pattern it returns :- string::npos
+	- to get index we need to subtract str.begin() from returned iterator.
+
+
+** to input string with spaces :- getline(cin,str);
+
+* 2D DP in strings is either 1)fill diagonally or for length k 2)fill substring wise i.e from i to j
+
+* KMP string matching algorithm :- https://www.youtube.com/watch?v=GTJr8OvyEVQ
+-making lps requires O(n) where n  is length of pattern
+-step 1: lps[0] = 0;i=1,j=0;
+-if(pat[i]==pat[j])lps[i]=j+1;i++;j++;
+-else:- if(j>0)j=lps[j-1];
+		else lps[i]=0;i++;
+
+* Rabin-Karp string matching algorithm :- //https://www.youtube.com/watch?v=qQ8vS2btsxI	
+
+** hash function for strings
+	hash(s)=s[0]+s[1]⋅p+s[2]⋅p^2+...+s[n−1]⋅p^(n-1) % mod
+	-p = prime number roughly equal to number of characters in input alphabet
+	-p = 31
+	- if both upper and lower case the p=53
+	-mod = 10^9+9
+	-store p,p^2,p^3,...,p^n [n is size of string]in array initially
+
+
+* Manacher's algorithm - find longest palindromic substring
+	-
+
+* Longest even length substring whose left sum == right sum.
+	-ex:-153803 - 5380 is answer
+	-https://www.geeksforgeeks.org/longest-even-length-substring-sum-first-second-half/
+	-see last solution on the page which is O(n^2) time and O(1) space.
+
+* Sherlock and anagrams hackerrank solution
+	-  found the first 26 primes (you could just list them, but I wrote a sieve), and then mapped each character in the string to the corresponding prime. So ‘abcba’ becomes [2, 3, 5, 3, 2]. Then to compute the hash function, you multiply the corresponding primes. (Critically, there won’t ever be collisions this way.) So Hash(‘abc’) -> 2*3*5 = 30. But to compute the hash value of the next string, ‘bcb’, you don’t need to compute this from scratch. Just divide by hash(‘a’) to remove ‘a’ and multiply by hash(‘b’) to add ‘b’.
+
+	- use rabin karp algorithm 
+
+* number of subsequences that are in form a^ib^jc^k
+	-https://www.geeksforgeeks.org/number-subsequences-form-ai-bj-ck/
+
+* rearrange the string such that no two same elements are adjacent
+	-https://www.geeksforgeeks.org/rearrange-characters-string-no-two-adjacent/
+
+* minimum insertions to form a palindrome
+	-https://www.geeksforgeeks.org/minimum-insertions-to-form-a-palindrome-dp-28/
+
+* LCS three strings :-https://www.geeksforgeeks.org/lcs-longest-common-subsequence-three-strings/
+	- easy 3 state DP
+
+* find longest proper prefix which is also proper suffix in given string
+	-prefix always starts from 0
+	and suffix from i [for string s from 0 to i]
+	-use LPS[] of KMP algorithm
+
+* longest common substring
+	- modify LCS algorithm
+	-for(i=0;i<=n;i++)
+	{
+	for(j=0;j<=m;j++)
+	{
+	if(i==0||j==0)
+	dp[i][j]=0;
+	else if(x[i-1]==y[j-1])
+	dp[i][j]=dp[i-1][j-1]+1;
+	else dp[i][j]=0;
+	ans=max(ans,dp[i][j]);
+	}
+	}
+	cout<<ans<<endl; }
+
+* interleved strigs //tushar roy //dynamic programming
+	-https://www.youtube.com/watch?v=ih2OZ9-M3OM
+
+* Print N-bit binary numbers having more 1’s than 0’s in all prefixes
+	-https://www.geeksforgeeks.org/print-n-bit-binary-numbers-1s-0s-prefixes/
+	-recursion
+
+* longest palindromic substring / count all palindromic substrings
+	-https://www.geeksforgeeks.org/longest-palindrome-substring-set-1/
+	-length 1 and 2 should be done separately
+	-from 3 to n same procedure must be followed
+
+* if 2d dp is used to solve problem in strings then -
+	- if strings are different whole 2d array is in use
+	- if strings are same of both x and y axis then upper triangular matrix is constructed
+
+* Longest repeating and nonoverlaping substring in given string
+	- https://www.geeksforgeeks.org/longest-repeating-and-non-overlapping-substring/
+  	- 2D upper triangular matrix dynamic programing problem
+
+* maximum number that can be formed by atmost k swaps
+	-https://www.geeksforgeeks.org/largest-permutation-k-swaps/
+	-use unordered map to store digit as key and index as value
+	-see last solution in given link
+
+* below are the links of problems which are to be solved yet	 
+	-https://www.geeksforgeeks.org/string-with-additive-sequence/
+	-https://practice.geeksforgeeks.org/problems/sum-string/0
+	-https://www.geeksforgeeks.org/next-higher-palindromic-number-using-set-digits/
+
+
+* number of distinct substrings in a strings :-
+	-https://www.youtube.com/watch?v=m2lZRmMjebw
+	-kasai's algorithm for getting lcp (longest common prefix) array
+	 	-https://www.geeksforgeeks.org/%C2%AD%C2%ADkasais-algorithm-for-construction-of-lcp-array-from-suffix-array/
+	-ans = total substrings possible - addition of all values in lcp array
+		 = n(n+1)/2 - addition of lcp array
+	-OR 
+	-https://www.geeksforgeeks.org/count-distinct-substrings-string-using-suffix-trie/
+
+** interview bit questions
+- https://www.interviewbit.com/problems/stringoholics/
+
+- multiply large numbers
+	-https://www.geeksforgeeks.org/multiply-large-numbers-represented-as-strings/
+
+
+
+
+
+
+
+
+

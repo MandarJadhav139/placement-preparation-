@@ -1,0 +1,19 @@
+* squareroot decomposition : - [5:00 onwards]//https://www.youtube.com/watch?v=o7278rPg_9I
+	-[1,5,2,3,6,4,8,5,6,4,1,6] //find minimum element from l to r index
+	-[1,3,6,1] // square root decomposed array //sqrt(n) blocks with sqrt(n) numbers in each block
+	-//dividing index by sqrt(n) gives block number
+	-if leftblock == rightblock according to given l and r both of them are in same block then simply find the minimum from l to r sequentially
+	-else find minimum for lb sequentially then from lb+1 to <rb compare with block minimums and then compare sequentially with elements of rb;
+
+* Mo's algorithm : -
+-https://www.geeksforgeeks.org/mos-algorithm-query-square-root-decomposition-set-1-introduction/
+-sort the queries according to head or start index
+-ties are sorted according to end index
+
+* Mo's algorithm on trees :-[concept] https://codeforces.com/blog/entry/43230
+
+* LCA algorithm :-[concept & implementation] https://cp-algorithms.com/graph/lca.html
+	-Euler's tour is representing a tree in 1 d array form where a node is present twice one time while start it's subtree and while ending it's subtree[during dfs traversal]
+	-in lca algorithm we also maintain height of node which we get from dfs
+	-lca of u,v is a node between their start in euler array with minimum height
+

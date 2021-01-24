@@ -1,0 +1,237 @@
+* Longest Increasing Subsequence 
+	-https://www.geeksforgeeks.org/longest-increasing-subsequence-dp-3/
+	-get lis at every index i.e lis for sequence ending in arr[i];
+	-for every lis[i] for j=0 to i get the maximum lis[j] where arr[i]>arr[j]
+	-this is the lis[i]
+	-like this get lis for every index
+	-return max_element(lis,lis+n);
+
+* Edit Distance //Find minimum number of operations require to convert string1 to string 2
+	-https://www.geeksforgeeks.org/edit-distance-dp-5/
+	-dp[len1+1][len2+1];
+	-for j=0 to len2 => dp[0][j]=j
+	-for i=0 to len1 => dp[i][0]=i
+	-for i=1 to len1 
+		for j=1 to len2
+			if(str1[i]==str2[j]) dp[i][j]=dp[i-1][j-1];
+			else dp[i][j] = 1 + min(dp[i][j-1],dp[i-1][j],dp[i-1][j-1]);
+									//insert	//remove     //replace
+
+* Min cost path in m*n matrix
+	-https://www.geeksforgeeks.org/min-cost-path-dp-6/
+	-only right,down and diagonally down are allowed 
+	-initialize first column and first row
+	-for i=1 to n
+		for j=1 to m
+			ans[i][j]=arr[i][j] + min(arr[i-1][j],arr[i][j-1],arr[i-1][j-1]);
+
+* 0-1 knapsack problem 
+	-int knapSack(int W, int wt[], int val[], int n) 
+	{ 
+	   int i, w; 
+	   int K[n+1][W+1]; 
+	  
+	   // Build table K[][] in bottom up manner 
+	   for (i = 0; i <= n; i++) 
+	   { 
+	       for (w = 0; w <= W; w++) 
+	       { 
+	           if (i==0 || w==0) 
+	               K[i][w] = 0; 
+	           else if (wt[i-1] <= w) 
+	                 K[i][w] = max(val[i-1] + K[i-1][w-wt[i-1]],  K[i-1][w]); 
+	           else
+	                 K[i][w] = K[i-1][w]; 
+	       } 
+	   } 
+	  
+	   return K[n][W]; 
+	} 
+
+* rod cutting 
+	-https://www.youtube.com/watch?v=IRwVmTmN6go
+
+* longest biotonic subsequence i.e first increasing and then decreasing
+	- find lis[] and lds[] that is longest increasing subsequece and longest decreasing subsequence
+	- find max(lis[i]+lds[i]-1);
+
+* palindrome partitioning
+	-https://www.youtube.com/watch?v=lDYIvtBVmgo
+	-for length 1 to n find minimum partitions required for each string 
+	-upper triangular matrix
+
+* see if we can partition an array into two sets having same sum
+	-if sum is odd => false
+	-if sum is even => find if subset is possible with sum = sum/2;
+	-https://www.geeksforgeeks.org/partition-problem-dp-18/
+
+* varitions of lis
+	-https://www.geeksforgeeks.org/variations-of-lis-dp-21/
+	-In lis we find previous max chain such that it ensures a condition of problem.
+
+* largest subset array sum/KADANE'S ALGORITHM
+	-int maxSubArraySum(int a[], int size) 
+{ 
+    int max_so_far = INT_MIN, max_ending_here = 0; 
+  
+    for (int i = 0; i < size; i++) 
+    { 
+        max_ending_here = max_ending_here + a[i]; 
+        if (max_so_far < max_ending_here) 
+            max_so_far = max_ending_here; 
+  
+        if (max_ending_here < 0) 
+            max_ending_here = 0; 
+    } 
+    return max_so_far; 
+} 
+int a[] = {-2, -3, 4, -1, -2, 1, 5, -3}; 
+
+* maximum size rectangle of all one's in matrix
+	-https://www.youtube.com/watch?v=g8bSdXCG-lA
+	-*largest area rectangle under histogram is required to be calculated for every row
+	-https://www.geeksforgeeks.org/largest-rectangle-under-histogram/
+	-area_with_top = hist[tp] * (s.empty() ? i :  
+                                   i - s.top() - 1); 
+
+
+* maximum size rectangle of all one's in matrix permutations of column allowed
+	-https://www.geeksforgeeks.org/find-the-largest-rectangle-of-1s-with-swapping-of-columns-allowed/
+
+* Edit distance you have to find number of possible ways to convert a to b
+	-https://www.geeksforgeeks.org/ways-transforming-one-string-removing-0-characters/
+	-upper triangular matrix
+	-dp[m][n]
+	-fill the first row
+	-then if a[i]==b[j] then dp[i][j] = dp[i-1][j-1]+dp[i][j-1]
+	-else dp[i][j] = dp[i][j-1]
+
+* wildcard expression matching 
+	-https://www.geeksforgeeks.org/wildcard-pattern-matching/
+	// If current characters match, result is same as 
+	// result for lengths minus one. Characters match
+	// in two cases:
+	// a) If pattern character is '?' then it matches  
+	//    with any character of text. 
+	// b) If current characters in both match
+	if ( pattern[j – 1] == ‘?’) || 
+	     (pattern[j – 1] == text[i - 1])
+	    T[i][j] = T[i-1][j-1]   
+	 
+	// If we encounter ‘*’, two choices are possible-
+	// a) We ignore ‘*’ character and move to next 
+	//    character in the pattern, i.e., ‘*’ 
+	//    indicates an empty sequence.
+	// b) '*' character matches with ith character in
+	//     input 
+	else if (pattern[j – 1] == ‘*’)
+	    T[i][j] = T[i][j-1] || T[i-1][j]  
+
+	else // if (pattern[j – 1] != text[i - 1])
+	    T[i][j]  = false 
+
+* regular expressions matching
+	-https://www.youtube.com/watch?v=l3hda49XcDE
+
+* text justification
+	-https://www.youtube.com/watch?v=RORuwHiblPc
+
+* mobile numeric keypad problem
+	-https://www.geeksforgeeks.org/mobile-numeric-keypad-problem-set-2/?ref=rp
+
+* count n digit numbers whose sum is s
+	-https://www.geeksforgeeks.org/count-of-n-digit-numbers-whose-sum-of-digits-equals-to-given-sum/
+
+
+* ways to colour 3*n board with 4 colors
+	-https://www.geeksforgeeks.org/ways-color-3n-board-using-4-colors/
+
+* number of ways to evaluate given boolean expression true
+	-https://www.geeksforgeeks.org/boolean-parenthesization-problem-dp-37/
+
+* longest valid parentheses
+	-https://www.youtube.com/watch?v=uPHXjpdAJ_I&list=WL&index=2&t=428s
+
+* buy sell stock with k transactions
+	-https://www.youtube.com/watch?v=oDhu5uGq_ic&t=28s
+
+* find submatrix in a matrix with maximum sum
+	-https://www.youtube.com/watch?v=yCQN096CwWM
+	-create a array of size rows
+	-for L=0 to cols
+		for R=L to cols
+			update values in array 
+	-use kadane's maximum subarray sum algorithm on the array on every iteration to find max sum submatrix
+	-keep track of topleft,topright,up,down
+
+*number of subarrays having sum exactly k
+	-https://www.youtube.com/watch?v=HbbYPQc-Oo4
+	-O(n)
+	-use map
+	-use prefix sum
+
+*maximum product subarray
+	-https://www.youtube.com/watch?v=1s0r7Ixir80
+	int maxproduct=arr[0],currmin=arr[0],currmax=arr[0];
+    for(int i=1;i<arr.size();i++)
+    {
+        int temp = currmax;
+        currmax = max(max(currmax*arr[i],currmin*arr[i]),arr[i]);
+        currmin = min(min(temp*arr[i],currmin*arr[i]),arr[i]);
+        if(currmax>maxproduct)maxproduct=currmax;
+        
+    }
+    return maxproduct;
+
+** Arrange2 - an interview bit problem - very good explaination of how to use recursion with dp
+	-https://www.interviewbit.com/problems/arrange-ii/
+	-they have given the solution which is very appropriate.
+
+	
+** n digit number with digit sum = s
+	-https://www.interviewbit.com/problems/n-digit-numbers-with-digit-sum-s-/
+	-same solution as arrange2
+
+** digit dp
+	-https://www.youtube.com/watch?v=sCwokuCoQB8&list=WL&index=2
+
+
+** bitmask and dp
+	-https://www.geeksforgeeks.org/bitmasking-and-dynamic-programming-set-1-count-ways-to-assign-unique-cap-to-every-person/
+
+** bitmask and dp problem 2
+	-https://www.geeksforgeeks.org/bitmasking-dynamic-programming-set-2-tsp/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+******************************************************************
+lis
+edit distance
+0\1 knapsack
+palindrome partitioning
+kadane's algorithm
+maximum size rectangle with all one's in a matrix
+wild card pattern matching
+text justification(spaces wala)
+arrange2(white and black horses and k stables)
+longest valid parenthesis
+stock buy and sell k transactions
+maximum sum submatrix
+subarray sum k
+maximum product subarray
+Boolean parenthesization
+digit dp (count numbers from l to r with digit sum = k)
+bitmask dp (n people each with some caps per each.number of ways such that all people have different cap and each person should have cap)
