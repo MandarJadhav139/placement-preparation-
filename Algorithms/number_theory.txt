@@ -31,8 +31,6 @@
 	- Politeness of a number is defined as the number of ways it can be expressed as the sum of consecutive integers.
 	-this equals to number of odd prime factors of a number -1;
 
-* A Smith Number is a composite number whose sum of digits is equal to the sum of digits in its prime factorization.
-
 *** Interesting facts about fibonacci numbers
 	-https://www.geeksforgeeks.org/interesting-facts-fibonacci-numbers/		
 
@@ -58,11 +56,6 @@
 	- modular substraction
 		-(a - b + m) % m = ((a % m) - (b % m) + m) % m 
 
-	- square root of N mod P
-		- when y^2 = N mod P then we say y is square root of N mod P
-		- how to tell if solution exists => https://www.youtube.com/watch?v=_6f0vMfBDLA
-		- this tells us that if y^2 = N mod P has solution if and only if N^((p-1)/2)[mod P]=1
-		- solution is y = + or -[N^((P+1)/4) ]... where P is 4n+3 form //https://www.youtube.com/watch?v=dSIkv9U5WO8
 
 	- How to use BigInteger class of java for extra large integers 
 		-https://www.geeksforgeeks.org/biginteger-class-in-java/
@@ -102,13 +95,6 @@
 	- euler's theorem :- if a and n are coprime then a^phi(n)=1(mod P)
 	so when n is prime it results in fermat's little theorem.
 
-	- Chinese Remainder Theorem :- https://www.youtube.com/watch?v=Fyr9rUWhhTM\
-		- x = a1(mod m1) x = a2(mod m2) x=a3(mod m3) then 
-			x = (M1X1a1 + M2X2a2 + M3X3a3)(mod M)
-			M = m1*m2*m3 , M1 = M/m1 ,M2 = M/m2,M3 = M/m3
-			M1*X1 = 1(mod m1),M2*X2 = 1(mod m2),M3*X3 = 1(mod m3)
-			m1,m2,m3 must be coprime otherwise x does not exist
-
 	- legendre's formula (highest power of prime number that divides n!)
 		-****[imp]https://www.geeksforgeeks.org/legendres-formula-highest-power-of-prime-number-that-divides-n/
 		-while (n)  
@@ -128,10 +114,6 @@
 	- prime number is of form 6*k+1 and 6*k-1 except for 2 and 3 //https://www.geeksforgeeks.org/primality-test-set-1-introduction-and-school-method/
 
 	- Segmented Sieve :- //https://www.youtube.com/watch?v=fByR5N-TseY
-		-use this when N is very large than 10^8 that is why sieve of erathosthenes cannot be used
-		-here we for getting all primes from 2 to (r)^1/2
-		-calculate primes from 1 to (r)^1/2 using sieve
-		-then using sieve calculate from l to r for every prime calculated if divisible or not
 
 	- divisible by 11 trick : - abs(sum of digits at odd places - sum of digits at even places) % 11 = 0 
 	then the number is divisible by 11
@@ -145,13 +127,6 @@
      - factorial of large numbers //https://www.geeksforgeeks.org/factorial-large-number/
      	-use array to store ans;
      	-multiply every number from 1 to n to the ans and update ans;
-
-     - count number of arrays possible of length n [element of array consists from 1 to m]
-     	where adjacent elements are either multiples or factors
-     	https://www.geeksforgeeks.org/count-arrays-adjacent-elements-one-divide-another/
-     	-use dp[i][j]
-     	-precompute factor and multiple for every element
-     	-i is size of array and j is starting from
 
      - sum of all numbers that can be formed with permutation of n digits
      https://www.geeksforgeeks.org/sum-numbers-can-formed-permutations-n-digits/

@@ -4,12 +4,8 @@
 * Huffman Coding :- //https://www.geeksforgeeks.org/huffman-coding-greedy-algo-3/
 	-You can find Huffman Coding applied in compression algorithms like DEFLATE (used in PKZIP), JPEG, and MP3.
 
-* k centers problem :- //https://www.geeksforgeeks.org/k-centers-problem-set-1-greedy-approximate-algorithm/
- 	- NP hard problem
- 	- optimal solution is obtained only if triangular inequality is followed (i.e distance between two nodes should be smaller than sum of distances through third point i.e x <= y+z)
-
 * minimum number of platforms required for a railway or bus station
- 	- merge sort
+ 	- merge sort//gfg problem
 
 * maximum length chain of pairs
  	- dynamic programming (n^2)

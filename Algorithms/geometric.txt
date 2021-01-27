@@ -19,10 +19,6 @@ int orientation(Point p, Point q, Point r)
     return (val > 0)? 1: 2; // clock or counterclock wise 
 } // we want to have counterclockwise for convex hull
   
-	-Graham Scan //NOT DONE
-
-	-Quick Hull //https://www.geeksforgeeks.org/quickhull-algorithm-convex-hull/
-
 
 * How to check if given two line segments
 	-https://www.geeksforgeeks.org/check-if-two-given-line-segments-intersect/

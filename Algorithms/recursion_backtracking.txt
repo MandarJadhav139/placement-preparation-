@@ -71,14 +71,8 @@
 	-use trie to search a valid word in dictionary [i.e trie of dictionary words]
 	-Implementation :- https://www.geeksforgeeks.org/boggle-set-2-using-trie/
 
-* M coloring problem - same as other backtracking problem
-
 * Maximum path sum in binary tree
 	-https://www.youtube.com/watch?v=mOdetMWwtoI
-	
-* Not yet solved 
-	- partition array to k subsets with same sum of elements
-	
 
 *************
 nqueens:-//this is main template to solve any problem in recursion

@@ -29,12 +29,6 @@
 	-else "balanced"
 
 *stock span problem
-	-s[0]=1;push(0);
-	-for i = 1 to < n :
-		-while(stack[top]<arr[i]){pop()};
-		-if stack.isempty() s[i]=i+1
-		-else s[i] = i-stack[top]
-		-push(i)
 
 *largest area under histogram
 	-https://www.geeksforgeeks.org/largest-rectangle-under-histogram/

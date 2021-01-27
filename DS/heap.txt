@@ -4,8 +4,8 @@
 	Arr[(2*i)+1]	Returns the left child node
 	Arr[(2*i)+2]	Returns the right child node
 
-**insert operation :- 
-	-insert  next element at next free space
+** insert operation :- 
+	-insert next element at next free space
 	-compare with parent till the element gets its position
 
 ** delete operation :- 
@@ -16,8 +16,6 @@
 ** heap sort :-
 	-delete element one by one  and store elements separately.
 
-**abdul bari udemy course / heap
-
 -duplicates are allowed
 	-All nodes are either [greater than or equal to child nodes](max heaps) or [less than or equal to child nodes](min heaps) each of its children, according to a comparison predicate defined for the heap.
 	
@@ -26,8 +24,6 @@
 	-insert first element from all arrays in min heap [O(k) time]
 	-delete the minimum element from heap and insert one element in heap from the array from which the element was deleted [O(logk)]
 	-keep repeating 
-
-***binomial heap and fibonacci heap [Not Done yet]
 
 -nearly sorted algorithm - array is given where every element is maximum k steps away from its sorted location we have to sort the array
 	-take first k elements and make min heap [O(k)]

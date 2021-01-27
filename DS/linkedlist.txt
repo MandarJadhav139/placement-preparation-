@@ -8,8 +8,6 @@
 	-linked list nodes are not contiguous in case of memory unlike array
 	-so if one node is at 100 next node can be on 900
 
-**Generic pointer[NOT DONE]
-
 *detect and remove loop in the linked list(floyd's cycle detection algo)
 	-https://www.youtube.com/watch?v=zbozWoMgKW0
 	-step 1:detect loop

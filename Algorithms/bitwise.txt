@@ -67,34 +67,11 @@
 	-this gives the answer
 
 * find maximum subset xor 
-- https://www.geeksforgeeks.org/find-maximum-subset-xor-given-set/
-	-	Let the input set be : {9, 8, 5}
-
-		We start from 31st bit [Assuming Integers are 32 bit 
-		long]. The loop will continue without doing anything till 4'th bit.
-
-		The 4th bit is set in set[0] i.e. 9 and this is the maximum
-		element with 4th bit set. So we choose this element and check
-		if any other number has the same bit set. If yes, we XOR that 
-		number with 9. The element set[1], i.e., 8 also has 4'th bit 
-		set. Now set[] becomes {9, 1, 5}.  We add 9 to the list of 
-		chosen elements by incrementing 'index'
-
-		We move further and find the maximum number with 3rd bit set
-		which is set[2] i.e. 5  No other number in the array has 3rd
-		bit set. 5 is also added to the list of chosen element.
-
-		We then iterate for bit 2 (no number for this) and then for 
-		1 which is 1. But numbers 9 and 5 have the 1st bit set. Thus
-		we XOR 9 and 5 with 1 and our set becomes (8, 1, 4)
-
-		Finally, we XOR current elements of set and get the result
-		as 8 ^ 1 ^ 4 = 13.
+	- https://www.geeksforgeeks.org/find-maximum-subset-xor-given-set/
 
 * If N has m set bits how many numbers less than N have same set bits 
 	-//https://practice.geeksforgeeks.org/problems/shreyansh-and-his-bits/0
 	-observation 1:-numbers less than N can only have set bits to the right of the leftmost set bit of N
-	-solution in gfg folder D/competitive/gfg
 
 * find maximum xor value using k numbers in range 1 to n
 	-answer when k>1 is always a number greater than n with all bits set to 1
@@ -102,16 +79,7 @@
 
 
 * find number of subsets with k as xor value of subset
-	- max xor val that is possible is number greater than n with all  bits set to 1
-	- so we have to just find next power of 2 and subtract 1 from it
-	- m = pow(2,log2(max(n))+1)-1;
-	https://www.geeksforgeeks.org/count-number-of-subsets-having-a-particular-xor-value/
-	- make arr[n+1][m+1] apply dp .. n is length of array
-	- arr[0][0] = 1 because there is one element with xor 0 i.e empty set
-	- for i=1 to n inclusive
-	 	for j=0 to m inclusive
-	 		arr[i][j] = arr[i-1][j] + arr[i-1][j^a[i-1]]; //a[] is input array
-	 		//because j^a[i-1]^a[i-1]=j
+	-https://www.geeksforgeeks.org/count-number-of-subsets-having-a-particular-xor-value/
 
 * sum of xor pairs in array
 	-https://www.geeksforgeeks.org/sum-xor-pairs-array/

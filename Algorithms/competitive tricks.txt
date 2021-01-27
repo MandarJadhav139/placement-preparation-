@@ -7,8 +7,7 @@ struct Key
     int freq; // store frequency of character 
     char ch; 
     
-    // function for priority_queue to store Key 
-    // according to freq 
+    // function for priority_queue to sort Key according to freq 
     bool operator<(const Key &k) const
     { 
         return freq < k.freq; 
@@ -55,12 +54,6 @@ to check if key is present in map
  pq.push( Key { count[c-'a'], c} ); 
  Key is a class so object can be pushed in this way.
  you don't need constructor
-**********************************************************************************
-for big numbers in cpp
-1)use string 
-2)  #include <boost/multiprecision/cpp_int.hpp> 
-    using namespace boost::multiprecision;
-    cpp_int num;
 **********************************************************************************
 vector<int>:: iterator it1,it2;
 it1 = lower_bound(arr.begin(),arr.end(),num);
